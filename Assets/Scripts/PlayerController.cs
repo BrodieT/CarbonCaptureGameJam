@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(AttackModule))]
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour
     //Component Caches
     private Animator playerAnimator = default; //used to animate the character
     private Rigidbody2D playerRigidbody = default; //used for character movement
+    private AttackModule playerAttack = default; //used for ranged attacks
 
     private void Awake()
     {
@@ -56,6 +58,7 @@ public class PlayerController : MonoBehaviour
 
         //Find the rigidbody on this object - doesnt need a TryGetComponent as Rigidbody2D is a required component
         playerRigidbody = GetComponent<Rigidbody2D>();
+        playerAttack = GetComponent<AttackModule>();
     }
 
     private void Update()
@@ -127,6 +130,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void AttackInput(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            playerAttack.Attack();
+        }
+    }
     private void OnDrawGizmosSelected()
     {
         //Show the grounded detection circle and change colour accordingly at runtime

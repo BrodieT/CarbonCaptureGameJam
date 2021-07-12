@@ -23,10 +23,19 @@ public class LeaderboardHandler : MonoBehaviour
     [SerializeField]
     List<SaveData.SaveDataStructure> allData = new List<SaveData.SaveDataStructure>();
 
+    [SerializeField]
+    private GameObject saveScreen = default;
+
+    [SerializeField]
+    private GameObject leaderboardScreen = default;
+
     // Start is called before the first frame update
     void Start()
     {
         Instance = this;
+
+        saveScreen.SetActive(true);
+        leaderboardScreen.SetActive(false);
     }
 
     public void SetHighScore(int s)
@@ -90,11 +99,20 @@ public class LeaderboardHandler : MonoBehaviour
         informationText.text = "";
     }
 
-    public void GetAllHighscores()
+    public List<SaveData.SaveDataStructure> GetAllHighscores()
     {
         allData.Clear();
         saveData.SortList();
         allData.AddRange(saveData.GetAllSaveData());
+
+        return allData;
     }
 
+    public void SwitchScreens()
+    {
+        saveScreen.SetActive(false);
+        leaderboardScreen.SetActive(true);
+
+        HighscoreTable.Instance.PopulateTable();
+    }
 }

@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b03ce01850ba534eb54a778f18ae3ee, type: 3}
   m_Name: SaveData
   m_EditorClassIdentifier: 
-  saveData: []
+  saveData:
+  - playerName: AWA
+    playerScore: 2
+  - playerName: UWU
+    playerScore: 6
+  - playerName: BLO
+    playerScore: 4

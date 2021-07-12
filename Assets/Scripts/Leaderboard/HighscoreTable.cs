@@ -32,7 +32,6 @@ public class HighscoreTable : MonoBehaviour
         data.Clear();
         data.AddRange(LeaderboardHandler.Instance.GetAllHighscores());
 
-
         foreach (SaveData.SaveDataStructure save in data)
         {
             TextMeshProUGUI text = Instantiate(leaderboardName);

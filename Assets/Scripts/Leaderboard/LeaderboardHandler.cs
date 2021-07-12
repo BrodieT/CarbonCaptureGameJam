@@ -18,6 +18,9 @@ public class LeaderboardHandler : MonoBehaviour
     private SaveData saveData = default;
 
     [SerializeField]
+    private ProfanityCheck profanityCheck = default;
+
+    [SerializeField]
     private TextMeshProUGUI informationText = default;
 
     [SerializeField]
@@ -81,11 +84,21 @@ public class LeaderboardHandler : MonoBehaviour
 
         if (!saveData.CheckSaveData(userName))
         {
-            SaveData.SaveDataStructure newSaveData = new SaveData.SaveDataStructure();
-            newSaveData.playerName = userName;
-            newSaveData.playerScore = score;
+            if (!profanityCheck.CheckProfanities(userName))
+            {
+                SaveData.SaveDataStructure newSaveData = new SaveData.SaveDataStructure();
+                newSaveData.playerName = userName;
+                newSaveData.playerScore = score;
 
-            saveData.saveData.Add(newSaveData);
+                saveData.saveData.Add(newSaveData);
+
+                UIHandler.Instance.SwitchMenu(UIHandler.MenuNames.LEADERBOARD);
+            }
+            else
+            {
+                informationText.text = "Username contains foul language, try again!";
+                Invoke("ClearInformationText", 3);
+            }
         }
         else
         {
@@ -110,9 +123,6 @@ public class LeaderboardHandler : MonoBehaviour
 
     public void SwitchScreens()
     {
-        saveScreen.SetActive(false);
-        leaderboardScreen.SetActive(true);
-
         HighscoreTable.Instance.PopulateTable();
     }
 }

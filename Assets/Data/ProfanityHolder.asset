@@ -9,13 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b03ce01850ba534eb54a778f18ae3ee, type: 3}
-  m_Name: SaveData
+  m_Script: {fileID: 11500000, guid: fb18725fb1f76bf4bac8fd4eed3c23e0, type: 3}
+  m_Name: ProfanityHolder
   m_EditorClassIdentifier: 
-  saveData:
-  - playerName: AWA
-    playerScore: 2
-  - playerName: UWU
-    playerScore: 6
-  - playerName: BLO
-    playerScore: 4
+  profanities:
+  - FUK
+  - ASS
+  - FUC
+  - FAG

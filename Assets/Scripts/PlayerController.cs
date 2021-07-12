@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D playerRigidbody = default; //used for character movement
     private AttackModule playerAttack = default; //used for ranged attacks
 
+
+
     private void Awake()
     {
         //Attempt to find the animator on this object
@@ -60,6 +62,8 @@ public class PlayerController : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerAttack = GetComponent<AttackModule>();
     }
+
+
 
     private void Update()
     {
@@ -81,12 +85,12 @@ public class PlayerController : MonoBehaviour
             groundedTimer = groundedRememberTime;
 
             //Clamp vertical velocity
-            if(verticalVelocity < -2.0f)
+            if(verticalVelocity < -2.0f )
             {
                 verticalVelocity = -2.0f;
             }
         }
-        
+
         //if the jump button was pressed recently and the player was recently grounded
         if (jumpPressTimer > 0.0f && groundedTimer > 0.0f)
         {

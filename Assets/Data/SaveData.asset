@@ -21,9 +21,5 @@ MonoBehaviour:
     playerScore: 2
   - playerName: ATS
     playerScore: 0
-  - playerName: ADA
-    playerScore: 0
-  - playerName: AAA
-    playerScore: 0
-  - playerName: AAU
+  - playerName: AUS
     playerScore: 0

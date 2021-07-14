@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6541442930225993085}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 61.210102, y: 9.662018, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: 4adeaf2d2b1c7417e89f026626d8264f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 60e4d52ef61e31e4eac671322d2829cf, type: 3}
   m_Color: {r: 0, g: 0.9226117, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,12 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifespan: 3
-  onHitPlayer:
-    m_PersistentCalls:
-      m_Calls: []
-  onHitEnemy:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!135 &6931071660735437621
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -115,7 +109,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7860862007079092899
 Rigidbody:

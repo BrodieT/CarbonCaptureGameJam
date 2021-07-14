@@ -6,7 +6,7 @@ public class UIHandler : MonoBehaviour
 {
     public static UIHandler Instance = default;
 
-    public enum MenuNames { MAIN_MENU, GAME_UI, TUTORIAL, SETTINGS, SAVE_SCREEN, LEADERBOARD }
+    public enum MenuNames { MAIN_MENU, GAME_UI, TUTORIAL, SETTINGS, SAVE_SCREEN, LEADERBOARD, WORLD_MAP, DIALOGUE }
 
     [System.Serializable]
     public struct UI

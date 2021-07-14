@@ -38,6 +38,9 @@ public class PlayerController : MonoBehaviour
     //Tracks whether the player is grounded
     private bool isGrounded = false;
 
+    public static PlayerController instance;
+
+
 
     //Jump timers
     private float jumpPressTimer = 0.0f;
@@ -75,6 +78,8 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
+
         //Attempt to find the animator on this object
         if (transform.TryGetComponent<Animator>(out Animator myAnim))
         {

@@ -6,16 +6,14 @@ public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField]
     DialogueData dialogueData = default;
-    [SerializeField]
-    GameObject dialogueUIPrefab = default;
 
     DialogueUI uiRef = default;
-
-    PlayerController playerRef = default;
 
     private bool isDialoguePlaying = false;
     int currentBeat = 0;
 
+
+    
     public void StartDialogue()
     {
         //Toggle isPlaying flag to prevent multiple dialogues at once
@@ -24,9 +22,13 @@ public class DialogueTrigger : MonoBehaviour
         currentBeat = 0;
 
         //Pause the player
-        if (playerRef)
+        if (PlayerController.instance)
         {
-            playerRef.EnterDialogue(this);
+            PlayerController.instance.EnterDialogue(this);
+        }
+        else
+        {
+            Debug.LogWarning("Player could not be found when starting dialogue encounter");
         }
 
         //Show UI and store a reference
@@ -47,10 +49,15 @@ public class DialogueTrigger : MonoBehaviour
     {
         isDialoguePlaying = false;
 
-        if(playerRef)
+        if(PlayerController.instance)
         {
-            playerRef.ExitDialogue();
+            PlayerController.instance.ExitDialogue();
         }
+        else
+        {
+            Debug.LogWarning("Player could not be found when ending dialogue encounter");
+        }
+
         //Hide UI
         UIHandler.Instance.SwitchMenu(UIHandler.MenuNames.GAME_UI);
         uiRef = null;
@@ -66,21 +73,9 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player") && !isDialoguePlaying && dialogueData)
+        if (other.CompareTag("Player") && !isDialoguePlaying && dialogueData)
         {
-            if (other.TryGetComponent<PlayerController>(out PlayerController player))
-            {
-                playerRef = player;
-                StartDialogue();
-            }
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerRef = null;
+            StartDialogue();
         }
     }
 
@@ -99,15 +94,15 @@ public class DialogueTrigger : MonoBehaviour
     }
 
 
-    IEnumerator PlayDialogue()
-    {
-        StartDialogue();
-        while (currentBeat < dialogueData.dialogue.Count)
-        {
-            DisplayBeat(currentBeat);
-            yield return new WaitForSeconds(dialogueData.dialogue[currentBeat].GetDialogueTime());
-            currentBeat++;
-        }
-        StopDialogue();
-    }
+    //IEnumerator PlayDialogue()
+    //{
+    //    StartDialogue();
+    //    while (currentBeat < dialogueData.dialogue.Count)
+    //    {
+    //        DisplayBeat(currentBeat);
+    //        yield return new WaitForSeconds(dialogueData.dialogue[currentBeat].GetDialogueTime());
+    //        currentBeat++;
+    //    }
+    //    StopDialogue();
+    //}
 }

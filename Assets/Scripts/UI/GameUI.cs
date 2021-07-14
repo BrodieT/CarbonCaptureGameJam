@@ -10,6 +10,8 @@ public class GameUI : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI countdownText = default;
 
+    [SerializeField]
+    TextMeshProUGUI timerText = default;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,5 +35,10 @@ public class GameUI : MonoBehaviour
         {
             countdownText.gameObject.SetActive(false);
         }
+    }
+
+    public void UpdateTimerText(Vector2 t)
+    {
+        timerText.text = t.x.ToString() + ":" + t.y.ToString();
     }
 }

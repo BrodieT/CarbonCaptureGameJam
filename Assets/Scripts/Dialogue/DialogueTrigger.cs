@@ -60,6 +60,7 @@ public class DialogueTrigger : MonoBehaviour
 
         //Hide UI
         UIHandler.Instance.SwitchMenu(UIHandler.MenuNames.GAME_UI);
+        LevelGenerator.Instance.StartLevelCountdown();
         uiRef = null;
     }
 

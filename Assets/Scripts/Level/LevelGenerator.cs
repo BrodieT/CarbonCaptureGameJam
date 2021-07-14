@@ -57,11 +57,17 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField]
     float levelTime = default;
 
+    [SerializeField]
+    Transform playerSpawn = default;
+
     // Start is called before the first frame update
     void Start()
     {
         Instance = this;
         GeneratePipeLevel(5);
+
+        //Reset Player
+        PlayerController.instance.transform.position = playerSpawn.position;
     }
 
 
@@ -111,5 +117,14 @@ public class LevelGenerator : MonoBehaviour
         GameObject l = spawnedPieces[0];
         spawnedPieces.RemoveAt(0);
         Destroy(l);
+    }
+
+    public void Restart()
+    {
+        CleanupPipeLevelPieces();
+        GeneratePipeLevel(5);
+
+        //Reset Player
+        PlayerController.instance.transform.position = playerSpawn.position;
     }
 }

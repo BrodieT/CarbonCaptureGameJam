@@ -8,10 +8,10 @@ public class LevelGenerator : MonoBehaviour
 
     IEnumerator LevelTimer()
     {
-        while (levelTime > 0)
+        while (time > 0)
         {
-            levelTime--;
-            System.TimeSpan duration = System.TimeSpan.FromSeconds(levelTime);
+            time--;
+            System.TimeSpan duration = System.TimeSpan.FromSeconds(time);
             Vector2Int result = new Vector2Int(duration.Minutes, duration.Seconds);
 
             GameUI.Instance.UpdateTimerText(result);
@@ -24,12 +24,15 @@ public class LevelGenerator : MonoBehaviour
         //Start Boss Battle
         if(bossLevel)
         {
+            Debug.Log("START BOSS DIALOGUE");
             bossLevelDialogue.StartDialogue();
+            StopCoroutine(LevelTimer());
         }
         else
         {
-            bossLevel = true;
+            Debug.Log("BEGIN BOSS LEVEL");
             StartBossLevel();
+            StopCoroutine(LevelTimer());
         }
     }
 
@@ -72,6 +75,7 @@ public class LevelGenerator : MonoBehaviour
 
     [SerializeField]
     float levelTime = default;
+    float time = 0;
 
     [SerializeField]
     Transform playerSpawn = default;
@@ -95,12 +99,20 @@ public class LevelGenerator : MonoBehaviour
 
 
     public void StartLevelCountdown()
-    { 
-        StartCoroutine(LevelCountdown());
+    {
+        if (bossLevel)
+        {
+            UIHandler.Instance.SwitchMenu(UIHandler.MenuNames.SAVE_SCREEN);
+        }
+        else
+        {
+            StartCoroutine(LevelCountdown());
+        }
     }
 
     void StartLevel()
     {
+        time = levelTime;
         StartCoroutine(LevelTimer());
     }
 
@@ -108,7 +120,10 @@ public class LevelGenerator : MonoBehaviour
     {
         bossLevel = true;
         levelPieces = bossLevelPieces;
-        StartLevelCountdown();
+
+        time = levelTime;
+        Restart();
+        StartCoroutine(LevelCountdown());
     }
 
     public void StopLevel()
@@ -136,7 +151,7 @@ public class LevelGenerator : MonoBehaviour
         spawnedPieces.Add(levelPiece);
         xPos += offsetSize;
 
-        if(spawnedPieces.Count > 6)
+        if(spawnedPieces.Count > 50)
         {
             CleanupPipeLevelPieces();
         }
@@ -152,6 +167,9 @@ public class LevelGenerator : MonoBehaviour
     public void Restart()
     {
         CleanupPipeLevelPieces();
+
+        xPos = 0;
+
         GeneratePipeLevel(5);
 
         //Reset Player

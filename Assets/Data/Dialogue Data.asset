@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce866d16b647f5a4fbb31e26e32a330c, type: 3}
+  m_Name: Dialogue Data
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: 0
+    dialogueContent: 'Damn you Colonel Carbon!
+
+      You''re polluting again!
+
+      I
+      will show you the power of CCS!'
+    beatTime: 5
+  - speaker: 1
+    dialogueContent: Pollution is the answer! You fool!
+    beatTime: 5
+  - speaker: 0
+    dialogueContent: When the well is dry, we know the worth of water.
+    beatTime: 10
+  - speaker: 1
+    dialogueContent: Shut up you goon!
+    beatTime: 10
+  - speaker: 0
+    dialogueContent: 'Goddammit Colonel Carbon!
+
+      I''ma break your legs!'
+    beatTime: 10

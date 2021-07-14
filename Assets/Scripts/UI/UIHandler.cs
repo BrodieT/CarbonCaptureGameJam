@@ -30,7 +30,33 @@ public class UIHandler : MonoBehaviour
         {
             SwitchMenu(MenuNames.MAIN_MENU);
         }
+        else
+        {
+            HideAll();
+        }
     }
+
+    public GameObject GetMenuObject(MenuNames menu)
+    {
+        int index = -1;
+        index = allUI.FindIndex(x => x.menuName == menu);
+
+        if(index >= 0)
+        {
+            return allUI[index].obj;
+        }
+
+        return null;
+    }
+
+    public void HideAll()
+    {
+        foreach (UI u in allUI)
+        {
+            u.obj.SetActive(false);
+        }
+    }
+
 
     public void SwitchMenu(MenuNames menu)
     {

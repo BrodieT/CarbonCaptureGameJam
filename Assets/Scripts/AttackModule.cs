@@ -18,6 +18,9 @@ public class AttackModule : MonoBehaviour
     [SerializeField]
     [Range(1, 5)]
     private int burstNum = 3;
+    [SerializeField]
+    [Range(0.1f, 1)]
+    float burstCooldown = 0.1f;
     int currentBurst = 0; 
 
     private float cooldownTimer = 0.0f;
@@ -66,7 +69,7 @@ public class AttackModule : MonoBehaviour
         currentBurst++;
         if(currentBurst < burstNum)
         {
-            Invoke("BurstAttack", 1);
+            Invoke("BurstAttack", burstCooldown);
         }
         else
         {

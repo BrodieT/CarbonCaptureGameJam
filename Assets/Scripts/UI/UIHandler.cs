@@ -21,6 +21,10 @@ public class UIHandler : MonoBehaviour
     [SerializeField]
     private bool showMainMenuOnStart = false;
 
+
+    [SerializeField]
+    public GameObject playerHealthbar = default;
+
     // Start is called before the first frame update
     void Start()
     {

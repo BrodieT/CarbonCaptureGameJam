@@ -11,11 +11,13 @@ public class PlayerHealthManager : HealthManager
     GameObject healthHolder = default;
 
 
-    int numberOfSegments = 3;
-
     // Start is called before the first frame update
     void Start()
     {
+        if(!healthHolder)
+            healthHolder = UIHandler.Instance.playerHealthbar;
+
+
         for (int i = 0; i < numberOfHits; i++)
         {
             AddSegment();
@@ -28,13 +30,17 @@ public class PlayerHealthManager : HealthManager
 
     public void AddSegment()
     {
-        Instantiate(healthSegment, healthHolder.transform);
+        if(healthSegment && healthHolder)
+            Instantiate(healthSegment, healthHolder.transform);
     }
 
-    
+
     public void RemoveSegment()
     {
-        if(healthHolder.transform.childCount > 0)
-            Destroy(healthHolder.transform.GetChild(0).gameObject);
+        if (healthSegment && healthHolder)
+        {
+            if (healthHolder.transform.childCount > 0)
+                Destroy(healthHolder.transform.GetChild(0).gameObject);
+        }
     }
 }

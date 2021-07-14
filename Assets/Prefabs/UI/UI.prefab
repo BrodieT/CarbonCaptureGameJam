@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1586061305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1586061306}
+  - component: {fileID: 1586061307}
+  m_Layer: 5
+  m_Name: Healthbar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1586061306
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586061305}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8157867619707228054}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 20, y: -20}
+  m_SizeDelta: {x: 150, y: 25}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &1586061307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586061305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 3
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &1765377412
 GameObject:
   m_ObjectHideFlags: 0
@@ -2808,6 +2870,7 @@ RectTransform:
   m_Children:
   - {fileID: 7478969117516433891}
   - {fileID: 3242489881596091634}
+  - {fileID: 1586061306}
   m_Father: {fileID: 1656255566876232381}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4341,11 +4404,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c64f7b5fc3284594bb7270a6a26451a3, type: 3}
---- !u!224 &3256384375187022184 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3805472415861442480, guid: c64f7b5fc3284594bb7270a6a26451a3, type: 3}
-  m_PrefabInstance: {fileID: 1873146331189454552}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3256384375187022199 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3805472415861442479, guid: c64f7b5fc3284594bb7270a6a26451a3, type: 3}
@@ -4357,6 +4415,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1817640b577701840a26d6c1b687a0ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &3256384375187022184 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3805472415861442480, guid: c64f7b5fc3284594bb7270a6a26451a3, type: 3}
+  m_PrefabInstance: {fileID: 1873146331189454552}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3256384376764336871
 PrefabInstance:
   m_ObjectHideFlags: 0

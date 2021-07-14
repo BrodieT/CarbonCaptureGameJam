@@ -19,6 +19,7 @@ public class Collectables : MonoBehaviour
     void Start()
     {
         Instance = this;
+        collectablesUI.text = textMessage + " " + totalCO2Collected.ToString();
     }
 
     private void Awake()
@@ -36,5 +37,8 @@ public class Collectables : MonoBehaviour
         Debug.Log("COLLECTED");
         totalCO2Collected++;
         collectablesUI.text = textMessage + " " + totalCO2Collected.ToString();
+
+        LeaderboardHandler.Instance.SetHighScore(totalCO2Collected);
     }
+
 }

@@ -6,6 +6,36 @@ public class LevelGenerator : MonoBehaviour
 {
     public static LevelGenerator Instance = default;
 
+    IEnumerator LevelTimer()
+    {
+        while (levelTime > 0)
+        {
+            levelTime--;
+            System.TimeSpan duration = System.TimeSpan.FromSeconds(levelTime);
+            Vector2Int result = new Vector2Int(duration.Minutes, duration.Seconds);
+
+            GameUI.Instance.UpdateTimerText(result);
+
+            yield return new WaitForSecondsRealtime(1);
+        }
+
+        //Start Boss Battle
+    }
+
+    IEnumerator LevelCountdown()
+    {
+        int count = 4;
+
+        while(count >= 0)
+        {
+            count -= 1;
+            GameUI.Instance.UpdateCountdownText(count);
+            yield return new WaitForSeconds(1);
+        }
+
+        StartLevel();
+    }
+
     [SerializeField]
     [Tooltip("Level pieces for the repeating pipe levels")]
     List<GameObject> pipeLevelPieces = new List<GameObject>();
@@ -24,11 +54,35 @@ public class LevelGenerator : MonoBehaviour
 
     float xPos = 0;
 
+    [SerializeField]
+    float levelTime = default;
+
     // Start is called before the first frame update
     void Start()
     {
         Instance = this;
         GeneratePipeLevel(5);
+    }
+
+
+    public void StartLevelCountdown()
+    { 
+        StartCoroutine(LevelCountdown());
+    }
+
+    void StartLevel()
+    {
+        StartCoroutine(LevelTimer());
+    }
+
+    public void StopLevel()
+    {
+        foreach(GameObject p in spawnedPieces)
+        {
+            Destroy(p);
+        }
+
+        spawnedPieces.Clear();
     }
 
     public void GeneratePipeLevel(int size)

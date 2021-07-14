@@ -88,6 +88,10 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField]
     bool randomAttacks = default;
+
+    [SerializeField]
+    GameObject enemyDrop = default;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -101,6 +105,11 @@ public class EnemyAI : MonoBehaviour
     {
         isDead = true;
         StopAllCoroutines();
+
+        GameObject drop = Instantiate(enemyDrop);
+        drop.transform.position = transform.position;
+
+        Destroy(gameObject);
     }
 
     public void HitEnemy(int damage)

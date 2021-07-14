@@ -61,7 +61,9 @@ public class DialogueTrigger : MonoBehaviour
 
         //Hide UI
         UIHandler.Instance.SwitchMenu(UIHandler.MenuNames.GAME_UI);
-        LevelGenerator.Instance.StartLevelCountdown();
+
+        if(LevelGenerator.Instance)
+            LevelGenerator.Instance.StartLevelCountdown();
         uiRef = null;
     }
 
@@ -73,7 +75,7 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && !isDialoguePlaying && dialogueData)
         {

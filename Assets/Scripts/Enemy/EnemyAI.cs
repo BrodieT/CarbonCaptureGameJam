@@ -138,7 +138,7 @@ public class EnemyAI : MonoBehaviour
                 attackModule.Attack();
                 break;
             case Attacks.BURST:
-                attackModule.Attack();
+                attackModule.BurstAttack();
                 break; 
         }
     }

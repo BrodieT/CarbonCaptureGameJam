@@ -15,6 +15,11 @@ public class AttackModule : MonoBehaviour
     [SerializeField, Tooltip("How long between attacks")]
     private float attackCooldown = 2.0f;
 
+    [SerializeField]
+    [Range(1, 5)]
+    private int burstNum = 3;
+    int currentBurst = 0; 
+
     private float cooldownTimer = 0.0f;
 
     private void Awake()
@@ -44,5 +49,30 @@ public class AttackModule : MonoBehaviour
 
             cooldownTimer = 0.0f;
         }
+    }
+
+    public void BurstAttack()
+    {
+        GameObject newProjectile = Instantiate(projectile);
+        newProjectile.transform.position = new Vector2(transform.position.x, transform.position.y) + offset;
+        newProjectile.transform.rotation = Quaternion.LookRotation(fireDirection);
+        newProjectile.transform.Rotate(newProjectile.transform.up * 90.0f);
+
+        if (newProjectile.TryGetComponent<ProjectileController>(out ProjectileController controller))
+        {
+            controller.InitialiseProjectile(fireDirection, projectileSpeed);
+        }
+
+        currentBurst++;
+        if(currentBurst < burstNum)
+        {
+            Invoke("BurstAttack", 1);
+        }
+        else
+        {
+            CancelInvoke("BurstAttack");
+            currentBurst = 0;
+        }
+
     }
 }

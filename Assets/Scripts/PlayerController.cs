@@ -48,6 +48,29 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D playerRigidbody = default; //used for character movement
     private AttackModule playerAttack = default; //used for ranged attacks
 
+    private bool isControlling = true;
+    private bool isInDialogue = false;
+    private DialogueTrigger currentDialogueRef = default;
+    private Vector3 velocityStore = new Vector3();
+    public void EnterDialogue(DialogueTrigger dialogue)
+    {
+        isControlling = false;
+        isInDialogue = true;
+        currentDialogueRef = dialogue;
+        velocityStore = playerRigidbody.velocity;
+        playerRigidbody.velocity = Vector3.zero;
+        playerRigidbody.Sleep();
+    }
+
+    public void ExitDialogue()
+    {
+        isControlling = true;
+        isInDialogue = false;
+        currentDialogueRef = null;
+        playerRigidbody.WakeUp();
+        playerRigidbody.velocity = velocityStore;
+        velocityStore = Vector3.zero;
+    }
 
 
     private void Awake()
@@ -67,39 +90,45 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        //Decrement the timers
-        groundedTimer -= Time.deltaTime;
-        jumpPressTimer -= Time.deltaTime;
-        //Check if the plauyer is grounded
-        isGrounded = IsGrounded();
+        if (isControlling)
+        {
+            //Decrement the timers
+            groundedTimer -= Time.deltaTime;
+            jumpPressTimer -= Time.deltaTime;
+            //Check if the plauyer is grounded
+            isGrounded = IsGrounded();
+        }
     }
 
     private void FixedUpdate()
     {
-        //Apply gravity
-        verticalVelocity += gravityForce * Time.fixedDeltaTime;
-
-        //If the player is grounded restart the grounded timer
-        if (isGrounded)
+        if (isControlling)
         {
-            groundedTimer = groundedRememberTime;
+            //Apply gravity
+            verticalVelocity += gravityForce * Time.fixedDeltaTime;
 
-            //Clamp vertical velocity
-            if(verticalVelocity < -2.0f )
+            //If the player is grounded restart the grounded timer
+            if (isGrounded)
             {
-                verticalVelocity = -2.0f;
+                groundedTimer = groundedRememberTime;
+
+                //Clamp vertical velocity
+                if (verticalVelocity < -2.0f)
+                {
+                    verticalVelocity = -2.0f;
+                }
             }
-        }
 
-        //if the jump button was pressed recently and the player was recently grounded
-        if (jumpPressTimer > 0.0f && groundedTimer > 0.0f)
-        {
-            //perform the jump
-            DoJump();
-        }
+            //if the jump button was pressed recently and the player was recently grounded
+            if (jumpPressTimer > 0.0f && groundedTimer > 0.0f)
+            {
+                //perform the jump
+                DoJump();
+            }
 
-        //Move the character to the right horizontally and apply the vertical velocity
-        playerRigidbody.velocity = new Vector2(movementSpeed, verticalVelocity);      
+            //Move the character to the right horizontally and apply the vertical velocity
+            playerRigidbody.velocity = new Vector2(movementSpeed, verticalVelocity);
+        }
     }
 
     //This function performs the jump
@@ -128,7 +157,7 @@ public class PlayerController : MonoBehaviour
     //If the jump button is pressed then restart the jump press timer
     public void JumpInput(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if(context.performed && isControlling)
         {
             jumpPressTimer = jumpPressRememberTime;
         }
@@ -136,9 +165,16 @@ public class PlayerController : MonoBehaviour
 
     public void AttackInput(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if (context.performed)
         {
-            playerAttack.Attack();
+            if (isControlling)
+            {
+                playerAttack.Attack();
+            }
+            else if(isInDialogue && currentDialogueRef)
+            {
+                currentDialogueRef.NextBeat();
+            }
         }
     }
     private void OnDrawGizmosSelected()

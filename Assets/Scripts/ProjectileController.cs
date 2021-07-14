@@ -16,11 +16,6 @@ public class ProjectileController : MonoBehaviour
     [SerializeField]
     private float lifespan = 10.0f;
 
-    [SerializeField]
-    public UnityEvent onHitPlayer = default;
-
-    [SerializeField]
-    public UnityEvent onHitEnemy = default;
 
     // Start is called before the first frame update
     void Start()
@@ -55,16 +50,9 @@ public class ProjectileController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if(other.TryGetComponent<HealthManager>(out HealthManager health))
         {
-            Debug.Log("Hit Player");
-            onHitPlayer.Invoke();
-        }
-
-        if (other.CompareTag("Enemy"))
-        {
-            Debug.Log("Hit Enemy");
-            onHitEnemy.Invoke();
+            health.OnHit();
         }
 
         Destroy(gameObject);

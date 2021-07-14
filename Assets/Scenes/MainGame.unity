@@ -373,7 +373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4433457223926609623, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 9139400517873394796, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: m_Name
@@ -381,11 +381,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: levelTime
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: offsetSize
-      value: 50
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: playerSpawn

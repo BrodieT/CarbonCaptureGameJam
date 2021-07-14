@@ -128,7 +128,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2729208402150075306, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
   m_PrefabInstance: {fileID: 7478969115807491977}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &224399245
+--- !u!114 &224399250
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -707,7 +707,7 @@ PrefabInstance:
     - target: {fileID: 4583978830932511643, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 224399245}
+      objectReference: {fileID: 224399250}
     - target: {fileID: 4583978830932511643, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StartDialogue

@@ -16,6 +16,8 @@ public class LevelGenerator : MonoBehaviour
 
             GameUI.Instance.UpdateTimerText(result);
 
+            GenerateNewPipeLevelPiece();
+
             yield return new WaitForSecondsRealtime(1);
         }
 
@@ -106,7 +108,7 @@ public class LevelGenerator : MonoBehaviour
         spawnedPieces.Add(levelPiece);
         xPos += offsetSize;
 
-        if(spawnedPieces.Count > 5)
+        if(spawnedPieces.Count > 6)
         {
             CleanupPipeLevelPieces();
         }

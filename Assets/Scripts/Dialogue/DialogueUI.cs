@@ -14,10 +14,10 @@ public class DialogueUI : MonoBehaviour
     Image captainBox = default;
     [SerializeField]
     Image colonelBox = default;
-    [SerializeField]
-    Image captainIcon = default;
-    [SerializeField]
-    Image colonelIcon = default;
+    //[SerializeField]
+    //Image captainIcon = default;
+    //[SerializeField]
+    //Image colonelIcon = default;
     [SerializeField]
     Vector3 normalScale = Vector3.one;
     [SerializeField]

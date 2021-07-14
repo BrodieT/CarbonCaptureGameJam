@@ -1,22 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody))]
 public class ProjectileController : MonoBehaviour
 {
 
     private float movementSpeed = 5.0f;
 
-    private Rigidbody2D rigidBody = default; //used for projectile movement
+    private Rigidbody rigidBody = default; //used for projectile movement
     private Vector2 direction = new Vector2();
     bool isInit = false;
+
+    [SerializeField]
+    private float lifespan = 10.0f;
+
+    [SerializeField]
+    public UnityEvent onHitPlayer = default;
+
+    [SerializeField]
+    public UnityEvent onHitEnemy = default;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Find the rigidbody on this object - doesnt need a TryGetComponent as Rigidbody2D is a required component
-        rigidBody = GetComponent<Rigidbody2D>();
+        //Find the rigidbody on this object - doesnt need a TryGetComponent as Rigidbody is a required component
+        rigidBody = GetComponent<Rigidbody>();
     }
 
     public void InitialiseProjectile(Vector2 dir, float speed)
@@ -24,6 +34,7 @@ public class ProjectileController : MonoBehaviour
         direction = dir;
         movementSpeed = speed;
         isInit = true;
+        Invoke("Cleanup", lifespan);
     }
 
 
@@ -36,8 +47,26 @@ public class ProjectileController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Cleanup()
     {
-        Debug.Log("Ow");
+        Destroy(gameObject);
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Hit Player");
+            onHitPlayer.Invoke();
+        }
+
+        if (other.CompareTag("Enemy"))
+        {
+            Debug.Log("Hit Enemy");
+            onHitEnemy.Invoke();
+        }
+
+        Destroy(gameObject);
     }
 }

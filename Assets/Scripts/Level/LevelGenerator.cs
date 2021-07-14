@@ -8,11 +8,15 @@ public class LevelGenerator : MonoBehaviour
 
     IEnumerator LevelTimer()
     {
-        while(levelTime > 0)
+        while (levelTime > 0)
         {
-            levelTime -= 1;
+            levelTime--;
+            System.TimeSpan duration = System.TimeSpan.FromSeconds(levelTime);
+            Vector2Int result = new Vector2Int(duration.Minutes, duration.Seconds);
 
-            yield return new WaitForSeconds(1);
+            GameUI.Instance.UpdateTimerText(result);
+
+            yield return new WaitForSecondsRealtime(1);
         }
 
         //Start Boss Battle
@@ -25,10 +29,11 @@ public class LevelGenerator : MonoBehaviour
         while(count >= 0)
         {
             count -= 1;
-
+            GameUI.Instance.UpdateCountdownText(count);
             yield return new WaitForSeconds(1);
         }
 
+        StartLevel();
     }
 
     [SerializeField]
@@ -50,8 +55,7 @@ public class LevelGenerator : MonoBehaviour
     float xPos = 0;
 
     [SerializeField]
-    [Range(1, 500)]
-    int levelTime = 0;
+    float levelTime = default;
 
     // Start is called before the first frame update
     void Start()
@@ -62,7 +66,7 @@ public class LevelGenerator : MonoBehaviour
 
 
     public void StartLevelCountdown()
-    {
+    { 
         StartCoroutine(LevelCountdown());
     }
 

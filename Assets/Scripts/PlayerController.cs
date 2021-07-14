@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(AttackModule))]
 public class PlayerController : MonoBehaviour
 {
@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Tooltip("How big a jump the player can perform"), Min(0)]
     private float jumpHeight = 10.0f;
     [SerializeField, Tooltip("Where the player's feet are")]
-    private Vector2 feetPosition = new Vector2(0, -0.5f);
+    private Vector3 feetPosition = new Vector3(0, -0.5f, 0.0f);
     [SerializeField, Tooltip("The radius around the feet position that the ground is checked")]
     private float groundCheckRadius = 0.5f;
 
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
     //Component Caches
     private Animator playerAnimator = default; //used to animate the character
-    private Rigidbody2D playerRigidbody = default; //used for character movement
+    private Rigidbody playerRigidbody = default; //used for character movement
     private AttackModule playerAttack = default; //used for ranged attacks
 
     private bool isControlling = true;
@@ -57,19 +57,29 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocityStore = new Vector3();
     public void EnterDialogue(DialogueTrigger dialogue)
     {
-        isControlling = false;
         isInDialogue = true;
         currentDialogueRef = dialogue;
+        PausePlayer();
+    }
+
+    public void ExitDialogue()
+    {
+        isInDialogue = false;
+        currentDialogueRef = null;
+        UnPausePlayer();
+    }
+
+    public void PausePlayer()
+    {
+        isControlling = false;
         velocityStore = playerRigidbody.velocity;
         playerRigidbody.velocity = Vector3.zero;
         playerRigidbody.Sleep();
     }
 
-    public void ExitDialogue()
+    public void UnPausePlayer()
     {
         isControlling = true;
-        isInDialogue = false;
-        currentDialogueRef = null;
         playerRigidbody.WakeUp();
         playerRigidbody.velocity = velocityStore;
         velocityStore = Vector3.zero;
@@ -86,8 +96,8 @@ public class PlayerController : MonoBehaviour
             playerAnimator = myAnim;
         }
 
-        //Find the rigidbody on this object - doesnt need a TryGetComponent as Rigidbody2D is a required component
-        playerRigidbody = GetComponent<Rigidbody2D>();
+        //Find the rigidbody on this object - doesnt need a TryGetComponent as Rigidbody is a required component
+        playerRigidbody = GetComponent<Rigidbody>();
         playerAttack = GetComponent<AttackModule>();
     }
 
@@ -156,7 +166,7 @@ public class PlayerController : MonoBehaviour
     //This function checks an overlap circle at the players feet to check if they are grounded
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y) + feetPosition, groundCheckRadius).Length > 1;
+        return Physics.OverlapSphere(transform.position + feetPosition, groundCheckRadius).Length > 1;
     }
 
     //If the jump button is pressed then restart the jump press timer
@@ -189,6 +199,6 @@ public class PlayerController : MonoBehaviour
 
             Gizmos.color = IsGrounded() ? Color.green : Color.red;
 
-        Gizmos.DrawWireSphere(transform.position + new Vector3(feetPosition.x, feetPosition.y, transform.position.z), groundCheckRadius);
+        Gizmos.DrawWireSphere(transform.position + feetPosition, groundCheckRadius);
     }
 }

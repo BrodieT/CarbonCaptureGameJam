@@ -45,6 +45,7 @@ public class EnemyAI : MonoBehaviour
             if(currentTime >= attackTime)
             {
                 currentTime = 0;
+                Attack();
                 Debug.Log("ATTACK");
             }
 
@@ -77,6 +78,16 @@ public class EnemyAI : MonoBehaviour
 
     int currentHealth = 0;
 
+    [SerializeField]
+    AttackModule attackModule = default;
+
+    public enum Attacks { SINGLE, BURST, SPRAY }
+    [SerializeField]
+    List<Attacks> attackList = new List<Attacks>();
+    int currentAttack = 0;
+
+    [SerializeField]
+    bool randomAttacks = default;
     // Start is called before the first frame update
     void Start()
     {
@@ -102,4 +113,33 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    void Attack()
+    {
+        if (!randomAttacks)
+        {
+            currentAttack++;
+
+            if (currentAttack > attackList.Count - 1)
+            {
+                currentAttack = 0;
+            }
+        }
+        else
+        {
+            currentAttack = Random.Range(0, attackList.Count);
+        }
+
+        switch(attackList[currentAttack])
+        {
+            case Attacks.SINGLE: 
+                attackModule.Attack();
+                break;
+            case Attacks.SPRAY:
+                attackModule.Attack();
+                break;
+            case Attacks.BURST:
+                attackModule.Attack();
+                break; 
+        }
+    }
 }

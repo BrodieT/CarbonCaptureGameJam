@@ -141,6 +141,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueData: {fileID: 11400000, guid: fd24fd0dc4d6f0c42a76560c8f74ccba, type: 2}
+--- !u!1 &899937531 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9139400517873394796, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+  m_PrefabInstance: {fileID: 1270621965}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &899937532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899937531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b308e95d4940cf45b6cecdcca0ffc38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueData: {fileID: 11400000, guid: 05505d2d75ec1844d8f7edb433a7e4c2, type: 2}
 --- !u!1 &926621877
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +414,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelGenerator
       objectReference: {fileID: 0}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: levelTime
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: playerSpawn
+      value: 
+      objectReference: {fileID: 1414815734}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: bossLevelDialogue
+      value: 
+      objectReference: {fileID: 899937532}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: bossLevelPieces.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: pipeLevelPieces.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: bossLevelPieces.Array.data[0]
+      value: 
+      objectReference: {fileID: 7211224323946990941, guid: b165db6e906a04949b814fa602a4ac24, type: 3}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: bossLevelPieces.Array.data[1]
+      value: 
+      objectReference: {fileID: 8961986477694980020, guid: e1ed98c7d08744dafacd90fc741be002, type: 3}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: bossLevelPieces.Array.data[2]
+      value: 
+      objectReference: {fileID: 5923114538424988614, guid: 3007ebd08b7bf45b5a2a05a05c84086d, type: 3}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: pipeLevelPieces.Array.data[0]
+      value: 
+      objectReference: {fileID: 7211224323946990941, guid: b165db6e906a04949b814fa602a4ac24, type: 3}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: pipeLevelPieces.Array.data[1]
+      value: 
+      objectReference: {fileID: 8961986477694980020, guid: e1ed98c7d08744dafacd90fc741be002, type: 3}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: pipeLevelPieces.Array.data[2]
+      value: 
+      objectReference: {fileID: 5923114538424988614, guid: 3007ebd08b7bf45b5a2a05a05c84086d, type: 3}
     - target: {fileID: 9139400517873394798, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -442,6 +504,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+--- !u!4 &1414815734 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4433457223926609623, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+  m_PrefabInstance: {fileID: 1270621965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1508686613 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5432447403709295980, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}

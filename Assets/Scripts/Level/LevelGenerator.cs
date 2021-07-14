@@ -16,17 +16,28 @@ public class LevelGenerator : MonoBehaviour
 
             GameUI.Instance.UpdateTimerText(result);
 
+            GenerateNewPipeLevelPiece();
+
             yield return new WaitForSecondsRealtime(1);
         }
 
         //Start Boss Battle
+        if(bossLevel)
+        {
+            bossLevelDialogue.StartDialogue();
+        }
+        else
+        {
+            bossLevel = true;
+            StartBossLevel();
+        }
     }
 
     IEnumerator LevelCountdown()
     {
         int count = 4;
 
-        while(count >= 0)
+        while (count >= 0)
         {
             count -= 1;
             GameUI.Instance.UpdateCountdownText(count);
@@ -40,6 +51,11 @@ public class LevelGenerator : MonoBehaviour
     [Tooltip("Level pieces for the repeating pipe levels")]
     List<GameObject> pipeLevelPieces = new List<GameObject>();
 
+    [SerializeField]
+    [Tooltip("Level pieces for the repeating boss level")]
+    List<GameObject> bossLevelPieces = new List<GameObject>();
+
+    List<GameObject> levelPieces = new List<GameObject>();
     List<GameObject> spawnedPieces = new List<GameObject>();
 
     GameObject levelPiece = default;
@@ -57,11 +73,24 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField]
     float levelTime = default;
 
+    [SerializeField]
+    Transform playerSpawn = default;
+
+    [SerializeField]
+    DialogueTrigger bossLevelDialogue = default;
+
+    bool bossLevel = false;
+
     // Start is called before the first frame update
     void Start()
     {
         Instance = this;
+
+        levelPieces = pipeLevelPieces;
         GeneratePipeLevel(5);
+
+        //Reset Player
+        PlayerController.instance.transform.position = playerSpawn.position;
     }
 
 
@@ -73,6 +102,13 @@ public class LevelGenerator : MonoBehaviour
     void StartLevel()
     {
         StartCoroutine(LevelTimer());
+    }
+
+    void StartBossLevel()
+    {
+        bossLevel = true;
+        levelPieces = bossLevelPieces;
+        StartLevelCountdown();
     }
 
     public void StopLevel()
@@ -95,12 +131,12 @@ public class LevelGenerator : MonoBehaviour
 
     public void GenerateNewPipeLevelPiece()
     {
-        levelPiece = Instantiate(pipeLevelPieces[Random.Range(0, pipeLevelPieces.Count)]);
+        levelPiece = Instantiate(levelPieces[Random.Range(0, levelPieces.Count)]);
         levelPiece.transform.position = new Vector2(xPos, yPos);
         spawnedPieces.Add(levelPiece);
         xPos += offsetSize;
 
-        if(spawnedPieces.Count > 5)
+        if(spawnedPieces.Count > 6)
         {
             CleanupPipeLevelPieces();
         }
@@ -111,5 +147,14 @@ public class LevelGenerator : MonoBehaviour
         GameObject l = spawnedPieces[0];
         spawnedPieces.RemoveAt(0);
         Destroy(l);
+    }
+
+    public void Restart()
+    {
+        CleanupPipeLevelPieces();
+        GeneratePipeLevel(5);
+
+        //Reset Player
+        PlayerController.instance.transform.position = playerSpawn.position;
     }
 }

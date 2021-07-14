@@ -44,6 +44,7 @@ public class DialogueTrigger : MonoBehaviour
         //Display the current beat
         DisplayBeat(0);
     }
+ 
 
     public void StopDialogue()
     {

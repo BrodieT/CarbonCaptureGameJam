@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-
     IEnumerator LerpEnemyPosition()
     {
         Transform goalTransform = default;
@@ -46,7 +45,6 @@ public class EnemyAI : MonoBehaviour
             {
                 currentTime = 0;
                 Attack();
-                Debug.Log("ATTACK");
             }
 
             yield return new WaitForFixedUpdate();
@@ -63,7 +61,7 @@ public class EnemyAI : MonoBehaviour
     GameObject enemy = default;
 
     [SerializeField]
-    [Range(1, 10)]
+    [Range(0, 10)]
     float speed = 0;
 
     bool isDead = false;
@@ -144,11 +142,13 @@ public class EnemyAI : MonoBehaviour
                 attackModule.Attack();
                 break;
             case Attacks.SPRAY:
-                attackModule.Attack();
+                attackModule.SprayAttack();
                 break;
             case Attacks.BURST:
                 attackModule.BurstAttack();
                 break; 
         }
     }
+
+
 }

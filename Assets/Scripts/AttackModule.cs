@@ -11,7 +11,7 @@ public class AttackModule : MonoBehaviour
     [SerializeField, Tooltip("The direction the projectile will be fired in")]
     private Vector2 fireDirection = Vector2.right;
     [SerializeField, Tooltip("How fast the projectile will go")]
-    private float projectileSpeed = 10.0f;
+    private float projectileSpeed = 200.0f;
     [SerializeField, Tooltip("How long between attacks")]
     private float attackCooldown = 2.0f;
 
@@ -38,8 +38,6 @@ public class AttackModule : MonoBehaviour
 
     public virtual void Attack()
     {
-        if (cooldownTimer >= attackCooldown)
-        {
             GameObject newProjectile = Instantiate(projectile);
             newProjectile.transform.position = new Vector2(transform.position.x, transform.position.y) + offset;
             newProjectile.transform.rotation = Quaternion.LookRotation(fireDirection);
@@ -50,8 +48,6 @@ public class AttackModule : MonoBehaviour
                 controller.InitialiseProjectile(fireDirection, projectileSpeed);
             }
 
-            cooldownTimer = 0.0f;
-        }
     }
 
     public void BurstAttack()
@@ -78,4 +74,45 @@ public class AttackModule : MonoBehaviour
         }
 
     }
+
+    public void SprayAttack()
+    {
+        if (cooldownTimer >= attackCooldown)
+        {
+            float angleIncrement = sprayRange / maxSprayCount;
+            Vector3 originPos = new Vector2(transform.position.x, transform.position.y) + offset;
+            int max = (maxSprayCount / 2);
+            if (max % 2 > 0)
+            {
+                max++;
+            }
+
+            int min = -maxSprayCount / 2;
+
+            for (int i = min; i < max; i++)
+            {
+                Quaternion q = Quaternion.AngleAxis(angleIncrement * i, Vector3.forward);
+
+                GameObject newProjectile = Instantiate(projectile);
+                newProjectile.transform.position = originPos + q * Vector3.right * 3.0f;
+                newProjectile.transform.rotation = q;
+                //newProjectile.transform.Rotate(newProjectile.transform.up * 90.0f);
+                if (newProjectile.TryGetComponent<ProjectileController>(out ProjectileController controller))
+                {
+                    Vector3 moveDir = (newProjectile.transform.position - originPos).normalized;
+                    controller.InitialiseProjectile(moveDir, projectileSpeed);
+                }
+            }
+
+
+            cooldownTimer = 0.0f;
+        }
+    }
+
+    [SerializeField]
+    public float sprayRange = 45.0f;
+ 
+    [SerializeField, Min(1)]
+    public int maxSprayCount = 3;
+ 
 }

@@ -56,6 +56,7 @@ public class LevelGenerator : MonoBehaviour
         if(bossLevel)
         {
             boss = Instantiate(bossEnemy);
+            boss.transform.position = PlayerController.instance.transform.position + new Vector3(12, 0, 0);
         }
     }
 

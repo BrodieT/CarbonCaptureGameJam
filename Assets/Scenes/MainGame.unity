@@ -828,6 +828,10 @@ PrefabInstance:
       value: 65.5
       objectReference: {fileID: 0}
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: stationaryEnemy
+      value: 
+      objectReference: {fileID: 4271930421281605478, guid: 2154da3b2076243409316078765c75bc, type: 3}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: bossLevelPieces.Array.size
       value: 3
       objectReference: {fileID: 0}

@@ -108,6 +108,10 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField]
     GameObject bossEnemy = default;
     GameObject boss = default;
+
+    [SerializeField]
+    GameObject stationaryEnemy = default;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -196,6 +200,13 @@ public class LevelGenerator : MonoBehaviour
         levelPiece.transform.position = new Vector3(xPos, yPos, zPos);
         spawnedPieces.Add(levelPiece);
         xPos += offsetSize;
+
+        if (!bossLevel)
+        {
+            Vector3 spawn = levelPiece.GetComponentInChildren<EnemySpawn>().transform.position;
+            GameObject enemy = Instantiate(stationaryEnemy);
+            enemy.transform.position = spawn;
+        }
 
         if(spawnedPieces.Count > 50)
         {

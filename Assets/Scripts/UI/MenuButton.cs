@@ -17,6 +17,7 @@ public class MenuButton : MonoBehaviour
 
     public void Switch()
     {
+        AudioHandler.Instance.PlaySound(AudioBank.Audio.UI);
         UIHandler.Instance.SwitchMenu(menu);
     }
 }

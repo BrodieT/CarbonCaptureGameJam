@@ -3841,10 +3841,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4301606921644403618, guid: 8b378330eb631494c8800766850a25f0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4301606921644403618, guid: 8b378330eb631494c8800766850a25f0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4301606921644403618, guid: 8b378330eb631494c8800766850a25f0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4301606921644403618, guid: 8b378330eb631494c8800766850a25f0, type: 3}
@@ -3852,7 +3856,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1081694042957748739}
     - target: {fileID: 4301606921644403618, guid: 8b378330eb631494c8800766850a25f0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1873146330959005290}
+    - target: {fileID: 4301606921644403618, guid: 8b378330eb631494c8800766850a25f0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4301606921644403618, guid: 8b378330eb631494c8800766850a25f0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4301606921644403618, guid: 8b378330eb631494c8800766850a25f0, type: 3}
@@ -3860,11 +3872,23 @@ PrefabInstance:
       value: StartDialogue
       objectReference: {fileID: 0}
     - target: {fileID: 4301606921644403618, guid: 8b378330eb631494c8800766850a25f0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: StartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 4301606921644403618, guid: 8b378330eb631494c8800766850a25f0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: DialogueTrigger, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4301606921644403618, guid: 8b378330eb631494c8800766850a25f0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UIHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4301606921644403618, guid: 8b378330eb631494c8800766850a25f0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4301606921644403618, guid: 8b378330eb631494c8800766850a25f0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8213652727411348971, guid: 8b378330eb631494c8800766850a25f0, type: 3}

@@ -6,11 +6,6 @@ public class AudioHandler : MonoBehaviour
 {
     public static AudioHandler Instance = default;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Instance = this;
-    }
 
     [SerializeField]
     AudioSource musicSource = default;
@@ -29,9 +24,10 @@ public class AudioHandler : MonoBehaviour
 
     List<AudioBank.AudioFile> allAudioFiles = new List<AudioBank.AudioFile>();
 
-    // Update is called once per frame
-    void Update()
+    // Start is called before the first frame update
+    void Start()
     {
+        Instance = this;
         allAudioFiles.AddRange(bank.allFiles);
         PlaySound(AudioBank.Audio.MENU_MUSIC);
     }

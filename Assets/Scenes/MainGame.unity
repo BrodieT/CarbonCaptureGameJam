@@ -852,6 +852,52 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+--- !u!1 &1289238387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1289238389}
+  - component: {fileID: 1289238388}
+  m_Layer: 0
+  m_Name: EffectsHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1289238388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289238387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dff02710802f1341b40591280673ac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allParticleEffects:
+  - {fileID: 2666990774438556394, guid: 52cfd50efd0795442a6b9ecc422c23f8, type: 3}
+  - {fileID: 4455488056765808307, guid: 054e66747ed4cdb44a14cfa66453493d, type: 3}
+--- !u!4 &1289238389
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289238387}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1328190697 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 636570003221504840, guid: bb415a2ec2b79de478fb7d3049c7ba7f, type: 3}

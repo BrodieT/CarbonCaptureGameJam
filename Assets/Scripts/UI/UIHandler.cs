@@ -34,7 +34,6 @@ public class UIHandler : MonoBehaviour
         if (showMainMenuOnStart)
         {
             SwitchMenu(MenuNames.MAIN_MENU);
-            AudioHandler.Instance.PlaySound(AudioBank.Audio.MENU_MUSIC);
         }
         else
         {

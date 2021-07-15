@@ -33,10 +33,13 @@ public class AudioHandler : MonoBehaviour
     void Update()
     {
         allAudioFiles.AddRange(bank.allFiles);
+        PlaySound(AudioBank.Audio.MENU_MUSIC);
     }
 
     public void PlaySound(AudioBank.Audio name)
     {
+        Debug.Log("play");
+
         foreach(AudioBank.AudioFile f in allAudioFiles)
         {
             if(f.name == name)

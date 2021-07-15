@@ -14,7 +14,7 @@ public class ProjectileController : MonoBehaviour
     bool isInit = false;
 
     [SerializeField]
-    private float lifespan = 10.0f;
+    private float lifespan = 2.0f;
 
 
     // Start is called before the first frame update

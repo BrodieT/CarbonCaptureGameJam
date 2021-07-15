@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4271930421281605480}
   - component: {fileID: 5285718929935439540}
   - component: {fileID: 8223214999570877286}
+  - component: {fileID: 8944694470550322558}
   m_Layer: 0
   m_Name: Stationary Enemy
   m_TagString: Enemy
@@ -58,6 +59,7 @@ MonoBehaviour:
   attackList: 00000000
   randomAttacks: 1
   enemyDrop: {fileID: 2235649027755034969, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
+  bossEnemy: 0
 --- !u!114 &5285718929935439540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,6 +92,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &8944694470550322558
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4271930421281605478}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &4271930421409965309
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +236,7 @@ MonoBehaviour:
   projectile: {fileID: 6541442930225993085, guid: a448fe751fdf3954ea7a4436c9687e5b, type: 3}
   offset: {x: -2, y: 0}
   fireDirection: {x: -1, y: 0}
-  projectileSpeed: 100
+  projectileSpeed: 50
   attackCooldown: 3.5
   burstNum: 3
   burstCooldown: 1

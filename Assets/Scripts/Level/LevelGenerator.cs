@@ -16,7 +16,10 @@ public class LevelGenerator : MonoBehaviour
 
             GameUI.Instance.UpdateTimerText(result);
 
-            GenerateNewPipeLevelPiece();
+            if (spawnedPieces.Count < 6)
+            {
+                GenerateNewPipeLevelPiece();
+            }
 
             yield return new WaitForSecondsRealtime(1);
         }
@@ -53,10 +56,10 @@ public class LevelGenerator : MonoBehaviour
         GameUI.Instance.UpdateCountdownText(count);
         StartLevel();
 
-        if(bossLevel)
+        if(bossLevel && boss == null)
         {
             boss = Instantiate(bossEnemy);
-            boss.transform.position = PlayerController.instance.transform.position + new Vector3(30, 0, 0);
+            boss.transform.position = new Vector3(CameraController.instance.transform.position.x, PlayerController.instance.transform.position.z, PlayerController.instance.transform.position.z) + new Vector3(5, 0, 0);
         }
     }
 
@@ -82,6 +85,9 @@ public class LevelGenerator : MonoBehaviour
     float yPos = 0;
 
     float xPos = 0;
+
+    [SerializeField]
+    float zPos = 0;
 
     [SerializeField]
     float levelTime = default;
@@ -187,7 +193,7 @@ public class LevelGenerator : MonoBehaviour
     public void GenerateNewPipeLevelPiece()
     {
         levelPiece = Instantiate(levelPieces[Random.Range(0, levelPieces.Count)]);
-        levelPiece.transform.position = new Vector2(xPos, yPos);
+        levelPiece.transform.position = new Vector3(xPos, yPos, zPos);
         spawnedPieces.Add(levelPiece);
         xPos += offsetSize;
 

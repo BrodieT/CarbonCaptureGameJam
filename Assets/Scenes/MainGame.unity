@@ -141,6 +141,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueData: {fileID: 11400000, guid: 05505d2d75ec1844d8f7edb433a7e4c2, type: 2}
+--- !u!114 &899937533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899937531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b308e95d4940cf45b6cecdcca0ffc38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueData: {fileID: 11400000, guid: 6a849dfb9e8d5d44a8ed17872dff8873, type: 2}
 --- !u!1 &926621877
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,6 +267,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1328190697}
     - target: {fileID: 2556106707054805783, guid: 2f2805b9240e0d64dbb1773074399c87, type: 3}
+      propertyPath: targetOffset.y
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2556106707054805783, guid: 2f2805b9240e0d64dbb1773074399c87, type: 3}
       propertyPath: targetOffset.z
       value: -20
       objectReference: {fileID: 0}
@@ -267,7 +284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2556106707054805993, guid: 2f2805b9240e0d64dbb1773074399c87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2556106707054805993, guid: 2f2805b9240e0d64dbb1773074399c87, type: 3}
       propertyPath: m_LocalPosition.z
@@ -393,6 +410,18 @@ PrefabInstance:
       objectReference: {fileID: 1414815734}
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: bossLevelDialogue
+      value: 
+      objectReference: {fileID: 899937532}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: dialogues.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: dialogues.Array.data[0]
+      value: 
+      objectReference: {fileID: 899937533}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: dialogues.Array.data[1]
       value: 
       objectReference: {fileID: 899937532}
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}

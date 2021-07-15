@@ -21,24 +21,22 @@ public class LevelGenerator : MonoBehaviour
             yield return new WaitForSecondsRealtime(1);
         }
 
-        //Start Boss Battle
-        if(bossLevel)
+        currentDialogue++;
+
+        Debug.Log(currentDialogue + "     " + dialogues.Count);
+        if (currentDialogue <= dialogues.Count)
         {
-            Debug.Log("START BOSS DIALOGUE");
-            bossLevelDialogue.StartDialogue();
-            StopCoroutine(LevelTimer());
+            dialogues[currentDialogue].StartDialogue();
         }
         else
         {
-            Debug.Log("BEGIN BOSS LEVEL");
-            StartBossLevel();
-            StopCoroutine(LevelTimer());
+            StartLevelCountdown();
         }
     }
 
     IEnumerator LevelCountdown()
     {
-        int count = 4;
+        int count = 3;
 
         while (count >= 0)
         {
@@ -85,6 +83,10 @@ public class LevelGenerator : MonoBehaviour
 
     bool bossLevel = false;
 
+    [SerializeField]
+    List<DialogueTrigger> dialogues = new List<DialogueTrigger>();
+    int currentDialogue = -1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -95,8 +97,19 @@ public class LevelGenerator : MonoBehaviour
 
         //Reset Player
         PlayerController.instance.transform.position = playerSpawn.position;
+        PlayerController.instance.PausePlayer();
     }
 
+    public bool OnLastDialogue()
+    {
+        Debug.Log(currentDialogue + "     " + dialogues.Count);
+        if(currentDialogue >= dialogues.Count - 1)
+        {
+            return true;
+        }
+
+        return false;
+    }
 
     public void StartLevelCountdown()
     {
@@ -108,12 +121,16 @@ public class LevelGenerator : MonoBehaviour
         {
             StartCoroutine(LevelCountdown());
         }
+
+        PlayerController.instance.PausePlayer();
     }
 
     void StartLevel()
     {
         time = levelTime;
         StartCoroutine(LevelTimer());
+
+        PlayerController.instance.UnPausePlayer();
     }
 
     void StartBossLevel()
@@ -124,6 +141,8 @@ public class LevelGenerator : MonoBehaviour
         time = levelTime;
         Restart();
         StartCoroutine(LevelCountdown());
+
+        PlayerController.instance.UnPausePlayer();
     }
 
     public void StopLevel()

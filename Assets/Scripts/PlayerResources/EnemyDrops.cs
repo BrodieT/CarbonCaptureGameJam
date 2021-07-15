@@ -21,6 +21,7 @@ public class EnemyDrops : MonoBehaviour
         if(other.GetComponent<PlayerController>())
         {
             OnCollected();
+            Destroy(gameObject);
         }
     }
 }

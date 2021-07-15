@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2990061829760665915}
   - component: {fileID: 6931071660735437621}
   - component: {fileID: 7860862007079092899}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de319470171cc94e85c0b3e86006600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifespan: 3
+  lifespan: 1
 --- !u!135 &6931071660735437621
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -62,8 +62,18 @@ public class DialogueTrigger : MonoBehaviour
         //Hide UI
         UIHandler.Instance.SwitchMenu(UIHandler.MenuNames.GAME_UI);
 
-        if(LevelGenerator.Instance)
-            LevelGenerator.Instance.StartLevelCountdown();
+        if (LevelGenerator.Instance)
+        {
+            if (!LevelGenerator.Instance.OnLastDialogue())
+            {
+                LevelGenerator.Instance.StartLevelCountdown();
+            }
+            else
+            {
+                PlayerController.instance.PausePlayer();
+                UIHandler.Instance.SwitchMenu(UIHandler.MenuNames.SAVE_SCREEN);
+            }
+        }
         uiRef = null;
     }
 

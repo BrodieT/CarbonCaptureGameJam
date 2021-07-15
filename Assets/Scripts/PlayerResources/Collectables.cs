@@ -34,7 +34,6 @@ public class Collectables : MonoBehaviour
 
     void CollectedCO2()
     {
-        Debug.Log("COLLECTED");
         totalCO2Collected++;
         collectablesUI.text = textMessage + " " + totalCO2Collected.ToString();
 

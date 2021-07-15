@@ -40,7 +40,8 @@ public class PlayerController : MonoBehaviour
 
     public static PlayerController instance;
 
-
+    private float moveDir = 0;
+    private float horizontalVelocity = 0;
 
     //Jump timers
     private float jumpPressTimer = 0.0f;
@@ -141,10 +142,47 @@ public class PlayerController : MonoBehaviour
                 DoJump();
             }
 
+
+            if (isGrounded)
+            {
+                horizontalVelocity = CameraController.instance.GetVelocity().x;
+
+                if (moveDir != 0)
+                {
+                    horizontalVelocity *= moveDir > 0 ? 1.5f : -0.5f;
+                }
+            }
+
+            ClampPosition();
+
             //Move the character to the right horizontally and apply the vertical velocity
-            playerRigidbody.velocity = new Vector2(movementSpeed, verticalVelocity);
+            playerRigidbody.velocity = new Vector2(isGrounded ? horizontalVelocity : horizontalVelocity * 0.75f, verticalVelocity);
+            //transform.position = new Vector3(Mathf.Clamp(transform.position.x, Camera.main.transform.position.x - 7.5f, CameraController.instance.transform.position.x), transform.position.y, transform.position.z);
         }
     }
+
+    private void ClampPosition()
+    {
+        if (transform.position.x > Camera.main.transform.position.x - 7.5f)
+        {
+            if (transform.position.x < CameraController.instance.transform.position.x)
+            {
+
+            }
+            else
+            {
+                transform.position = new Vector3(CameraController.instance.transform.position.x, transform.position.y, transform.position.z);
+                moveDir = 0;
+            }
+        }
+        else
+        {
+            transform.position = new Vector3(CameraController.instance.transform.position.x - 7.5f, transform.position.y, transform.position.z);
+            moveDir = 0;
+        }
+
+    }
+
 
     //This function performs the jump
     private void DoJump()
@@ -168,6 +206,13 @@ public class PlayerController : MonoBehaviour
     {
         return Physics.OverlapSphere(transform.position + feetPosition, groundCheckRadius).Length > 1;
     }
+
+
+    public void MoveInput(InputAction.CallbackContext context)
+    {
+        moveDir = context.ReadValue<float>();
+    }
+
 
     //If the jump button is pressed then restart the jump press timer
     public void JumpInput(InputAction.CallbackContext context)
@@ -200,5 +245,17 @@ public class PlayerController : MonoBehaviour
             Gizmos.color = IsGrounded() ? Color.green : Color.red;
 
         Gizmos.DrawWireSphere(transform.position + feetPosition, groundCheckRadius);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.transform.CompareTag("Enemy"))
+        {
+            if(transform.TryGetComponent<PlayerHealthManager>(out PlayerHealthManager hp))
+            {
+                hp.OnHit();
+            }
+            Destroy(collision.gameObject);
+        }
     }
 }

@@ -2,34 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(HealthManager))]
 public class EnemyAI : MonoBehaviour
 {
     IEnumerator LerpEnemyPosition()
     {
-        Transform goalTransform = default;
-
-        goalTransform = maxTop;
-        float dist = 0;
-
-        while(!isDead)
+        if (maxTop && maxBottom)
         {
-            dist = Vector2.Distance(enemy.transform.position, goalTransform.position);
+            Transform goalTransform = maxTop;
 
-            enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, goalTransform.position, Time.deltaTime * speed);
-
-            if (dist < 0.1f)
+            while (!isDead)
             {
-                if(goalTransform == maxTop)
-                {
-                    goalTransform = maxBottom;
-                }
-                else
-                {
-                    goalTransform = maxTop;
-                }
-            }
+                enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, goalTransform.position, Time.deltaTime * speed);
 
-            yield return new WaitForFixedUpdate();
+                if (Vector2.Distance(enemy.transform.position, goalTransform.position) < 0.1f)
+                {
+                    if (goalTransform == maxTop)
+                    {
+                        goalTransform = maxBottom;
+                    }
+                    else
+                    {
+                        goalTransform = maxTop;
+                    }
+                }
+
+                yield return new WaitForFixedUpdate();
+            }
         }
     }
 
@@ -90,10 +89,16 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     GameObject enemyDrop = default;
 
+
+    private HealthManager healthManager = default;
+
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
+
+        healthManager = GetComponent<HealthManager>();
+        healthManager.onDie.AddListener(() => KillEnemy());
+
 
         StartCoroutine(LerpEnemyPosition());
         StartCoroutine(EnemyAttacks());
@@ -111,16 +116,6 @@ public class EnemyAI : MonoBehaviour
         drop.transform.position = transform.position;
 
         Destroy(gameObject);
-    }
-
-    public void HitEnemy(int damage)
-    {
-        currentHealth -= damage;
-
-        if(currentHealth < 0)
-        {
-            KillEnemy();
-        }
     }
 
     void Attack()

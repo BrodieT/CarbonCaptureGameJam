@@ -32,6 +32,8 @@ public class LevelGenerator : MonoBehaviour
         {
             StartLevelCountdown();
         }
+
+        Restart();
     }
 
     IEnumerator LevelCountdown()
@@ -50,6 +52,11 @@ public class LevelGenerator : MonoBehaviour
 
         GameUI.Instance.UpdateCountdownText(count);
         StartLevel();
+
+        if(bossLevel)
+        {
+            boss = Instantiate(bossEnemy);
+        }
     }
 
     [SerializeField]
@@ -91,6 +98,9 @@ public class LevelGenerator : MonoBehaviour
     List<DialogueTrigger> dialogues = new List<DialogueTrigger>();
     int currentDialogue = -1;
 
+    [SerializeField]
+    GameObject bossEnemy = default;
+    GameObject boss = default;
     // Start is called before the first frame update
     void Start()
     {
@@ -107,7 +117,7 @@ public class LevelGenerator : MonoBehaviour
     public bool OnLastDialogue()
     {
         Debug.Log(currentDialogue + "     " + dialogues.Count);
-        if(currentDialogue >= dialogues.Count - 1)
+        if(currentDialogue > dialogues.Count - 1 || bossLevel)
         {
             return true;
         }
@@ -117,9 +127,10 @@ public class LevelGenerator : MonoBehaviour
 
     public void StartLevelCountdown()
     {
-        if (bossLevel)
+        if (currentDialogue == dialogues.Count - 2)
         {
-            UIHandler.Instance.SwitchMenu(UIHandler.MenuNames.SAVE_SCREEN);
+            Debug.Log("BOSS LEVEL");
+            StartBossLevel();
         }
         else
         {
@@ -132,6 +143,7 @@ public class LevelGenerator : MonoBehaviour
     void StartLevel()
     {
         time = levelTime;
+
         StartCoroutine(LevelTimer());
 
         PlayerController.instance.UnPausePlayer();
@@ -143,7 +155,6 @@ public class LevelGenerator : MonoBehaviour
         levelPieces = bossLevelPieces;
 
         time = levelTime;
-        Restart();
         StartCoroutine(LevelCountdown());
 
         PlayerController.instance.UnPausePlayer();
@@ -189,9 +200,19 @@ public class LevelGenerator : MonoBehaviour
 
     public void Restart()
     {
-        CleanupPipeLevelPieces();
+        foreach(GameObject o in spawnedPieces)
+        {
+            Destroy(o);
+        }
+
+        spawnedPieces.Clear();
 
         xPos = 0;
+
+        if(boss != null)
+        {
+            Destroy(boss);
+        }
 
         GeneratePipeLevel(5);
 

@@ -362,6 +362,10 @@ PrefabInstance:
       value: LevelGenerator
       objectReference: {fileID: 0}
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: bossEnemy
+      value: 
+      objectReference: {fileID: 8846583698284393678, guid: d579577df5469e444a5456273c7121a1, type: 3}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: levelTime
       value: 5
       objectReference: {fileID: 0}

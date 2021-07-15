@@ -114,5 +114,11 @@ public class AttackModule : MonoBehaviour
  
     [SerializeField, Min(1)]
     public int maxSprayCount = 3;
- 
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(transform.position + new Vector3(offset.x, offset.y, transform.position.z), 0.25f);
+    }
 }

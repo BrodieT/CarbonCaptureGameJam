@@ -56,6 +56,7 @@ public class LevelGenerator : MonoBehaviour
         if(bossLevel)
         {
             boss = Instantiate(bossEnemy);
+            boss.transform.position = PlayerController.instance.transform.position + new Vector3(12, 0, 0);
         }
     }
 
@@ -157,6 +158,7 @@ public class LevelGenerator : MonoBehaviour
         time = levelTime;
         StartCoroutine(LevelCountdown());
 
+        AudioHandler.Instance.PlaySound(AudioBank.Audio.BOSS_MUSIC);
         PlayerController.instance.UnPausePlayer();
     }
 

@@ -5,19 +5,49 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class CameraController : MonoBehaviour
 {
-    [SerializeField, Tooltip("The object being tracked by the camera")]
-    private Transform target = default;
+   
     [SerializeField, Tooltip("The speed at which the camera follows the target")]
     private float moveSpeed = 3.0f;
-    [SerializeField, Tooltip("How far off the target the camera aims for")]
-    private Vector3 targetOffset = new Vector3(0, 2.0f, -10.0f);
+
+    private bool isControlling = true;
+    Vector3 oldPos = new Vector3();
+    Vector3 velocity = new Vector3();
+
+
+    public static CameraController instance = default;
+
+    private void Awake()
+    {
+        instance = this;
+        oldPos = transform.position;
+    }
 
     private void LateUpdate()
     {
-        //Lerp towards the target position plus the target offset value
-        if (target)
+        if (isControlling)
         {
-            transform.position = Vector3.Lerp(transform.position, target.position + targetOffset, Time.deltaTime * moveSpeed);
+            //Lerp to the right
+            transform.position = Vector3.Lerp(transform.position, transform.position + transform.right, Time.deltaTime * moveSpeed);
         }
+
+
+        velocity = (transform.position - oldPos) / Time.deltaTime;
+        oldPos = transform.position;
+
+    }
+
+    public Vector3 GetVelocity()
+    {
+        return velocity;
+    }
+
+    public void PauseCamera()
+    {
+        isControlling = false;
+    }
+
+    public void UnPauseCamera()
+    {
+        isControlling = true;
     }
 }

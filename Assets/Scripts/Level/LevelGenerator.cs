@@ -36,15 +36,19 @@ public class LevelGenerator : MonoBehaviour
 
     IEnumerator LevelCountdown()
     {
-        int count = 3;
+        int count = 4;
 
-        while (count >= 0)
+        while (count > 0)
         {
             count -= 1;
             GameUI.Instance.UpdateCountdownText(count);
+
             yield return new WaitForSeconds(1);
         }
 
+        count = -1;
+
+        GameUI.Instance.UpdateCountdownText(count);
         StartLevel();
     }
 

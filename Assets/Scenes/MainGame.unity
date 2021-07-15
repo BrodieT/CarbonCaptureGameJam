@@ -123,37 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &899937531 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9139400517873394796, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
-  m_PrefabInstance: {fileID: 1270621965}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &899937532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899937531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b308e95d4940cf45b6cecdcca0ffc38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueData: {fileID: 11400000, guid: 05505d2d75ec1844d8f7edb433a7e4c2, type: 2}
---- !u!114 &899937533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899937531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b308e95d4940cf45b6cecdcca0ffc38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueData: {fileID: 11400000, guid: 6a849dfb9e8d5d44a8ed17872dff8873, type: 2}
 --- !u!1 &926621877
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +229,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2556106707054805782, guid: 2f2805b9240e0d64dbb1773074399c87, type: 3}
       propertyPath: orthographic
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2556106707054805782, guid: 2f2805b9240e0d64dbb1773074399c87, type: 3}
+      propertyPath: orthographic size
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2556106707054805783, guid: 2f2805b9240e0d64dbb1773074399c87, type: 3}
       propertyPath: target
@@ -384,78 +357,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4433457223926609623, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4433457223926609623, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4
-      objectReference: {fileID: 0}
     - target: {fileID: 9139400517873394796, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: m_Name
       value: LevelGenerator
       objectReference: {fileID: 0}
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: levelTime
-      value: 30
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: offsetSize
-      value: 65
+      value: 65.5
       objectReference: {fileID: 0}
-    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
-      propertyPath: playerSpawn
-      value: 
-      objectReference: {fileID: 1414815734}
-    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
-      propertyPath: bossLevelDialogue
-      value: 
-      objectReference: {fileID: 899937532}
-    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
-      propertyPath: dialogues.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
-      propertyPath: dialogues.Array.data[0]
-      value: 
-      objectReference: {fileID: 899937533}
-    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
-      propertyPath: dialogues.Array.data[1]
-      value: 
-      objectReference: {fileID: 899937532}
-    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
-      propertyPath: bossLevelPieces.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
-      propertyPath: pipeLevelPieces.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
-      propertyPath: bossLevelPieces.Array.data[0]
-      value: 
-      objectReference: {fileID: 7211224323946990941, guid: b165db6e906a04949b814fa602a4ac24, type: 3}
-    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
-      propertyPath: bossLevelPieces.Array.data[1]
-      value: 
-      objectReference: {fileID: 8961986477694980020, guid: e1ed98c7d08744dafacd90fc741be002, type: 3}
-    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
-      propertyPath: bossLevelPieces.Array.data[2]
-      value: 
-      objectReference: {fileID: 5923114538424988614, guid: 3007ebd08b7bf45b5a2a05a05c84086d, type: 3}
-    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
-      propertyPath: pipeLevelPieces.Array.data[0]
-      value: 
-      objectReference: {fileID: 7211224323946990941, guid: b165db6e906a04949b814fa602a4ac24, type: 3}
-    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
-      propertyPath: pipeLevelPieces.Array.data[1]
-      value: 
-      objectReference: {fileID: 8961986477694980020, guid: e1ed98c7d08744dafacd90fc741be002, type: 3}
-    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
-      propertyPath: pipeLevelPieces.Array.data[2]
-      value: 
-      objectReference: {fileID: 5923114538424988614, guid: 3007ebd08b7bf45b5a2a05a05c84086d, type: 3}
     - target: {fileID: 9139400517873394798, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -506,11 +419,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 636570003221504840, guid: bb415a2ec2b79de478fb7d3049c7ba7f, type: 3}
   m_PrefabInstance: {fileID: 1041536072}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1414815734 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4433457223926609623, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
-  m_PrefabInstance: {fileID: 1270621965}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2050727212
 GameObject:

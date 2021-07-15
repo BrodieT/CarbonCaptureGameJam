@@ -105,6 +105,7 @@ public class EnemyAI : MonoBehaviour
         StopAllCoroutines();
 
         EffectsHandler.Instance.SpawnEffect(transform.position);
+        AudioHandler.Instance.PlaySound(AudioBank.Audio.IMPACT);
 
         GameObject drop = Instantiate(enemyDrop);
         drop.transform.position = transform.position;

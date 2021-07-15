@@ -15,19 +15,22 @@ MonoBehaviour:
   allFiles:
   - name: 0
     source: 0
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: bb0e1f0d41644c142a423e27200ee868, type: 3}
   - name: 1
     source: 0
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 372f1839e28d3064f9c22152bf5b1be9, type: 3}
   - name: 2
     source: 1
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 0da2958e840986d4c8f929ec3a192908, type: 3}
   - name: 3
     source: 3
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: c6cd0624f06392740803f836a833d8c4, type: 3}
   - name: 4
     source: 2
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: b9524e7f5f9493344b98627c26f4a9ba, type: 3}
   - name: 5
     source: 1
     clip: {fileID: 0}
+  - name: 6
+    source: 0
+    clip: {fileID: 8300000, guid: e1cd5812c6d94f54b82a3515a9644d05, type: 3}

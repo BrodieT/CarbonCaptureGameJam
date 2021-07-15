@@ -158,6 +158,7 @@ public class LevelGenerator : MonoBehaviour
         time = levelTime;
         StartCoroutine(LevelCountdown());
 
+        AudioHandler.Instance.PlaySound(AudioBank.Audio.BOSS_MUSIC);
         PlayerController.instance.UnPausePlayer();
     }
 

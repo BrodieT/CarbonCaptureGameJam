@@ -147,11 +147,13 @@ public class PlayerController : MonoBehaviour
             {
                 horizontalVelocity = CameraController.instance.GetVelocity().x;
 
-                if (moveDir != 0 && IsInRange())
+                if (moveDir != 0)
                 {
                     horizontalVelocity *= moveDir > 0 ? 1.5f : -0.5f;
                 }
             }
+
+            ClampPosition();
 
             //Move the character to the right horizontally and apply the vertical velocity
             playerRigidbody.velocity = new Vector2(isGrounded ? horizontalVelocity : horizontalVelocity * 0.75f, verticalVelocity);
@@ -159,13 +161,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private bool IsInRange()
+    private void ClampPosition()
     {
         if (transform.position.x > Camera.main.transform.position.x - 7.5f)
         {
             if (transform.position.x < CameraController.instance.transform.position.x)
             {
-                return true;
+
             }
             else
             {
@@ -179,7 +181,6 @@ public class PlayerController : MonoBehaviour
             moveDir = 0;
         }
 
-        return false;
     }
 
 
@@ -244,5 +245,17 @@ public class PlayerController : MonoBehaviour
             Gizmos.color = IsGrounded() ? Color.green : Color.red;
 
         Gizmos.DrawWireSphere(transform.position + feetPosition, groundCheckRadius);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.transform.CompareTag("Enemy"))
+        {
+            if(transform.TryGetComponent<PlayerHealthManager>(out PlayerHealthManager hp))
+            {
+                hp.OnHit();
+            }
+            Destroy(collision.gameObject);
+        }
     }
 }

@@ -102,6 +102,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 853f45429f0ef48c5a0e4174b0e7ad32, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 67a0ffc6902b53643b757bc58d61a35b, type: 2}
     - target: {fileID: 919132149155446097, guid: 853f45429f0ef48c5a0e4174b0e7ad32, type: 3}
       propertyPath: m_Name
       value: Scene_Background
@@ -350,6 +354,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cc39efea1e0d44c7eadfc3d9e854acc1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5fa82b4b10ef38f4ab11e55e168deb57, type: 2}
     - target: {fileID: 919132149155446097, guid: cc39efea1e0d44c7eadfc3d9e854acc1, type: 3}
       propertyPath: m_Name
       value: Pipe_Version1
@@ -412,6 +420,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7f715ad0327094316aa9708dcc68ff8b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7101a7cf23426da489bea38be96cc6de, type: 2}
     - target: {fileID: 919132149155446097, guid: 7f715ad0327094316aa9708dcc68ff8b, type: 3}
       propertyPath: m_Name
       value: Scene_Pipe

@@ -92,6 +92,10 @@ public class EnemyAI : MonoBehaviour
 
     private HealthManager healthManager = default;
 
+    [SerializeField]
+    bool bossEnemy = false;
+    Rigidbody rb = default;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -99,9 +103,15 @@ public class EnemyAI : MonoBehaviour
         healthManager = GetComponent<HealthManager>();
         healthManager.onDie.AddListener(() => KillEnemy());
 
+        rb = GetComponent<Rigidbody>();
 
         StartCoroutine(LerpEnemyPosition());
         StartCoroutine(EnemyAttacks());
+    }
+
+    private void FixedUpdate()
+    {
+        rb.velocity = CameraController.instance.GetVelocity();
     }
 
     public void KillEnemy()

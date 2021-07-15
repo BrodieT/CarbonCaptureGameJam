@@ -56,7 +56,7 @@ public class LevelGenerator : MonoBehaviour
         if(bossLevel)
         {
             boss = Instantiate(bossEnemy);
-            boss.transform.position = PlayerController.instance.transform.position + new Vector3(12, 0, 0);
+            boss.transform.position = PlayerController.instance.transform.position + new Vector3(30, 0, 0);
         }
     }
 
@@ -113,6 +113,7 @@ public class LevelGenerator : MonoBehaviour
         //Reset Player
         PlayerController.instance.transform.position = playerSpawn.position;
         PlayerController.instance.PausePlayer();
+        CameraController.instance.PauseCamera();
     }
 
     public bool OnLastDialogue()
@@ -139,6 +140,7 @@ public class LevelGenerator : MonoBehaviour
         }
 
         PlayerController.instance.PausePlayer();
+        CameraController.instance.PauseCamera();
     }
 
     void StartLevel()
@@ -148,6 +150,7 @@ public class LevelGenerator : MonoBehaviour
         StartCoroutine(LevelTimer());
 
         PlayerController.instance.UnPausePlayer();
+        CameraController.instance.UnPauseCamera();
     }
 
     void StartBossLevel()
@@ -160,6 +163,7 @@ public class LevelGenerator : MonoBehaviour
 
         AudioHandler.Instance.PlaySound(AudioBank.Audio.BOSS_MUSIC);
         PlayerController.instance.UnPausePlayer();
+        CameraController.instance.UnPauseCamera();
     }
 
     public void StopLevel()

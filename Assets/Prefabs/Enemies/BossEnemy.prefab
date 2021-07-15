@@ -100,6 +100,10 @@ MonoBehaviour:
   fireDirection: {x: -1, y: 0}
   projectileSpeed: 100
   attackCooldown: 2
+  burstNum: 3
+  burstCooldown: 0.1
+  sprayRange: 45
+  maxSprayCount: 3
 --- !u!1 &8846583698166847317
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,6 +144,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8846583698284393665}
   - component: {fileID: 8846583698284393664}
+  - component: {fileID: 1207935549321904217}
+  - component: {fileID: 7984314143184782419}
   m_Layer: 0
   m_Name: BossEnemy
   m_TagString: Untagged
@@ -185,6 +191,43 @@ MonoBehaviour:
   attackModule: {fileID: 2358131905015999834}
   attackList: 000000000100000002000000
   randomAttacks: 0
+  enemyDrop: {fileID: 0}
+  bossEnemy: 1
+--- !u!114 &1207935549321904217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8846583698284393678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc357ed8c91c73348b702ff888d1fe9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfHits: 3
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!54 &7984314143184782419
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8846583698284393678}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
 --- !u!1 &8846583699084504712
 GameObject:
   m_ObjectHideFlags: 0

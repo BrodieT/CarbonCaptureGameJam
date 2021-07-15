@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIHandler : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class UIHandler : MonoBehaviour
         if (showMainMenuOnStart)
         {
             SwitchMenu(MenuNames.MAIN_MENU);
+            AudioHandler.Instance.PlaySound(AudioBank.Audio.MENU_MUSIC);
         }
         else
         {
@@ -69,11 +71,22 @@ public class UIHandler : MonoBehaviour
             if(u.menuName == menu)
             {
                 u.obj.SetActive(true);
+
             }
             else
             {
                 u.obj.SetActive(false);
             }
         }
+    }
+
+    public void StartGame()
+    {
+        AudioHandler.Instance.PlaySound(AudioBank.Audio.GAME_MUSIC);
+    }
+
+    public void RestartFullGame()
+    {
+        SceneManager.LoadScene(0);
     }
 }

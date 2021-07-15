@@ -16,6 +16,8 @@ public class GameUI : MonoBehaviour
     void Start()
     {
         Instance = this;
+        countdownText.text = "0";
+        timerText.text = "0";
     }
 
     // Update is called once per frame

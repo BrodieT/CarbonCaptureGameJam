@@ -21,33 +21,43 @@ public class LevelGenerator : MonoBehaviour
             yield return new WaitForSecondsRealtime(1);
         }
 
-        //Start Boss Battle
-        if(bossLevel)
+        currentDialogue++;
+
+        Debug.Log(currentDialogue + "     " + dialogues.Count);
+        if (currentDialogue <= dialogues.Count)
         {
-            Debug.Log("START BOSS DIALOGUE");
-            bossLevelDialogue.StartDialogue();
-            StopCoroutine(LevelTimer());
+            dialogues[currentDialogue].StartDialogue();
         }
         else
         {
-            Debug.Log("BEGIN BOSS LEVEL");
-            StartBossLevel();
-            StopCoroutine(LevelTimer());
+            StartLevelCountdown();
         }
+
+        Restart();
     }
 
     IEnumerator LevelCountdown()
     {
         int count = 4;
 
-        while (count >= 0)
+        while (count > 0)
         {
             count -= 1;
             GameUI.Instance.UpdateCountdownText(count);
+
             yield return new WaitForSeconds(1);
         }
 
+        count = -1;
+
+        GameUI.Instance.UpdateCountdownText(count);
         StartLevel();
+
+        if(bossLevel)
+        {
+            boss = Instantiate(bossEnemy);
+            boss.transform.position = PlayerController.instance.transform.position + new Vector3(12, 0, 0);
+        }
     }
 
     [SerializeField]
@@ -85,6 +95,13 @@ public class LevelGenerator : MonoBehaviour
 
     bool bossLevel = false;
 
+    [SerializeField]
+    List<DialogueTrigger> dialogues = new List<DialogueTrigger>();
+    int currentDialogue = -1;
+
+    [SerializeField]
+    GameObject bossEnemy = default;
+    GameObject boss = default;
     // Start is called before the first frame update
     void Start()
     {
@@ -95,25 +112,42 @@ public class LevelGenerator : MonoBehaviour
 
         //Reset Player
         PlayerController.instance.transform.position = playerSpawn.position;
+        PlayerController.instance.PausePlayer();
     }
 
+    public bool OnLastDialogue()
+    {
+        Debug.Log(currentDialogue + "     " + dialogues.Count);
+        if(currentDialogue > dialogues.Count - 1 || bossLevel)
+        {
+            return true;
+        }
+
+        return false;
+    }
 
     public void StartLevelCountdown()
     {
-        if (bossLevel)
+        if (currentDialogue == dialogues.Count - 2)
         {
-            UIHandler.Instance.SwitchMenu(UIHandler.MenuNames.SAVE_SCREEN);
+            Debug.Log("BOSS LEVEL");
+            StartBossLevel();
         }
         else
         {
             StartCoroutine(LevelCountdown());
         }
+
+        PlayerController.instance.PausePlayer();
     }
 
     void StartLevel()
     {
         time = levelTime;
+
         StartCoroutine(LevelTimer());
+
+        PlayerController.instance.UnPausePlayer();
     }
 
     void StartBossLevel()
@@ -122,8 +156,9 @@ public class LevelGenerator : MonoBehaviour
         levelPieces = bossLevelPieces;
 
         time = levelTime;
-        Restart();
         StartCoroutine(LevelCountdown());
+
+        PlayerController.instance.UnPausePlayer();
     }
 
     public void StopLevel()
@@ -166,9 +201,19 @@ public class LevelGenerator : MonoBehaviour
 
     public void Restart()
     {
-        CleanupPipeLevelPieces();
+        foreach(GameObject o in spawnedPieces)
+        {
+            Destroy(o);
+        }
+
+        spawnedPieces.Clear();
 
         xPos = 0;
+
+        if(boss != null)
+        {
+            Destroy(boss);
+        }
 
         GeneratePipeLevel(5);
 

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce866d16b647f5a4fbb31e26e32a330c, type: 3}
-  m_Name: BossDialogue
+  m_Name: AfterBossDialogue
   m_EditorClassIdentifier: 
   dialogue:
   - speaker: 0

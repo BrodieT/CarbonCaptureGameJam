@@ -109,6 +109,8 @@ public class EnemyAI : MonoBehaviour
         isDead = true;
         StopAllCoroutines();
 
+        EffectsHandler.Instance.SpawnEffect(transform.position);
+
         GameObject drop = Instantiate(enemyDrop);
         drop.transform.position = transform.position;
 

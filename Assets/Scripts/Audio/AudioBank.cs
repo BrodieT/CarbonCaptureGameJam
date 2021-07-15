@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioBank : MonoBehaviour
+[CreateAssetMenu(fileName = "Audio Bank", menuName = "New Audio Bank")]
+public class AudioBank : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
+    public enum Audio { MENU_MUSIC, GAME_MUSIC, IMPACT, COLLECT, UI, FOOTSTEPS}
+
+    public enum AudioSource { MUSIC, PLAYER, UI, ELSE}
+    [System.Serializable]
+    public struct AudioFile
     {
-        
+        public Audio name;
+        public AudioSource source;
+        public AudioClip clip;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField]
+    public List<AudioFile> allFiles = new List<AudioFile>();
 }

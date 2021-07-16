@@ -67,6 +67,7 @@ public class LevelGenerator : MonoBehaviour
         {
             boss = Instantiate(bossEnemy);
             boss.transform.position = new Vector3(CameraController.instance.transform.position.x, PlayerController.instance.transform.position.z, PlayerController.instance.transform.position.z) + new Vector3(7, 0, 0);
+            finished = true;
         }
     }
 
@@ -119,6 +120,8 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField]
     GameObject stationaryEnemy = default;
 
+    bool finished = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -140,7 +143,8 @@ public class LevelGenerator : MonoBehaviour
     public bool OnLastDialogue()
     {
         Debug.Log(currentDialogue + "     " + dialogues.Count);
-        if(currentDialogue > dialogues.Count - 1 || bossLevel)
+
+        if(currentDialogue > dialogues.Count - 1 || finished)
         {
             return true;
         }
@@ -150,17 +154,18 @@ public class LevelGenerator : MonoBehaviour
 
     public void StartLevelCountdown()
     {
-       
-        if (currentDialogue == dialogues.Count - 2)
+        if (!finished)
         {
-            Debug.Log("BOSS LEVEL");
-            StartBossLevel();
+            if (currentDialogue == dialogues.Count - 2)
+            {
+                Debug.Log("BOSS LEVEL");
+                StartBossLevel();
+            }
+            else
+            {
+                StartCoroutine(LevelCountdown());
+            }
         }
-        else
-        {
-            StartCoroutine(LevelCountdown());
-        }
-
         PlayerController.instance.PausePlayer();
         CameraController.instance.PauseCamera();
     }

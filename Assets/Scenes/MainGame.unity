@@ -1451,6 +1451,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: e6dd7150dbb43497a98cb2f7d4476c35, type: 3}
+    - target: {fileID: 2023195762917957826, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
+      propertyPath: m_text
+      value: ...
+      objectReference: {fileID: 0}
     - target: {fileID: 2023195762917957827, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.92586
@@ -1478,6 +1482,14 @@ PrefabInstance:
     - target: {fileID: 2023195762955164516, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023195762955164519, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
+      propertyPath: m_text
+      value: ...
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023195762955164519, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
+      propertyPath: m_fontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2123761539372017471, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
       propertyPath: m_Type
@@ -1805,7 +1817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6515308418429085744, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -246.87
+      value: -176.9
       objectReference: {fileID: 0}
     - target: {fileID: 6515308418429085744, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1901,7 +1913,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6942673038791216063, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 239
+      value: 170.8
       objectReference: {fileID: 0}
     - target: {fileID: 6942673038791216063, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
       propertyPath: m_AnchoredPosition.y

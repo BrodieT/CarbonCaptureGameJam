@@ -7,6 +7,10 @@ public class EnemyDrops : MonoBehaviour
     public delegate void OnCollect();
     public static event OnCollect collectCO2Delegate;
 
+    private void Start()
+    {
+        Invoke("DestroyCarbon", 10);   
+    }
 
     void OnCollected()
     {
@@ -23,5 +27,10 @@ public class EnemyDrops : MonoBehaviour
             OnCollected();
             Destroy(gameObject);
         }
+    }
+
+    void DestroyCarbon()
+    {
+        Destroy(gameObject);
     }
 }

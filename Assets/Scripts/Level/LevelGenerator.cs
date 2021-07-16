@@ -120,6 +120,9 @@ public class LevelGenerator : MonoBehaviour
 
     bool finished = false;
 
+    [SerializeField]
+    List<GameObject> enemies = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -239,6 +242,8 @@ public class LevelGenerator : MonoBehaviour
                     Vector3 spawn = t.GetComponent<EnemySpawn>().transform.position;
                     GameObject enemy = Instantiate(stationaryEnemy);
                     enemy.transform.position = spawn;
+
+                    enemies.Add(enemy);
                 }
             }
         }
@@ -263,7 +268,13 @@ public class LevelGenerator : MonoBehaviour
             Destroy(o);
         }
 
+        foreach(GameObject e in enemies)
+        {
+            Destroy(e);
+        }
+
         spawnedPieces.Clear();
+        enemies.Clear();
 
         xPos = 0;
 

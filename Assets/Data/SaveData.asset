@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: SaveData
   m_EditorClassIdentifier: 
   saveData:
+  - playerName: AGA
+    playerScore: 19
   - playerName: HEA
     playerScore: 0
   - playerName: BRO

@@ -14,7 +14,6 @@ public class HealthManager : MonoBehaviour
     public virtual void OnHit()
     {
         numberOfHits--;
-        Debug.Log("Ow");
         if(numberOfHits <= 0)
         {
             OnDie();

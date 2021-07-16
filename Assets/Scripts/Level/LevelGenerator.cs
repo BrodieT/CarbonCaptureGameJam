@@ -128,7 +128,11 @@ public class LevelGenerator : MonoBehaviour
         GeneratePipeLevel(5);
 
         //Reset Player
-        PlayerController.instance.transform.position = playerSpawn.position;
+        //Reset Player
+        CameraController.instance.transform.position = new Vector3(playerSpawn.position.x, CameraController.instance.transform.position.y, CameraController.instance.transform.position.z);
+        PlayerController.instance.transform.position = new Vector3(CameraController.instance.transform.position.x, playerSpawn.transform.position.y, playerSpawn.transform.position.z);
+
+
         PlayerController.instance.PausePlayer();
         CameraController.instance.PauseCamera();
     }
@@ -146,8 +150,7 @@ public class LevelGenerator : MonoBehaviour
 
     public void StartLevelCountdown()
     {
-        Restart(false);
-
+       
         if (currentDialogue == dialogues.Count - 2)
         {
             Debug.Log("BOSS LEVEL");
@@ -268,11 +271,14 @@ public class LevelGenerator : MonoBehaviour
         GeneratePipeLevel(5);
 
         //Reset Player
-        PlayerController.instance.transform.position = playerSpawn.position;
+        CameraController.instance.transform.position = new Vector3(playerSpawn.position.x, CameraController.instance.transform.position.y, CameraController.instance.transform.position.z);
+        PlayerController.instance.transform.position = new Vector3(CameraController.instance.transform.position.x, playerSpawn.transform.position.y, playerSpawn.transform.position.z);
 
         if(playerDied)
         {
             Collectables.Instance.ResetScore();
         }
+
+        StartLevelCountdown();
     }
 }

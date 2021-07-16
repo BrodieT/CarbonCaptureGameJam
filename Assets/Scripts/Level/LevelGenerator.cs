@@ -16,10 +16,9 @@ public class LevelGenerator : MonoBehaviour
 
             GameUI.Instance.UpdateTimerText(result);
 
-            if (spawnedPieces.Count < 6)
-            {
-                GenerateNewPipeLevelPiece();
-            }
+
+            GenerateNewPipeLevelPiece();
+
 
             yield return new WaitForSecondsRealtime(1);
         }

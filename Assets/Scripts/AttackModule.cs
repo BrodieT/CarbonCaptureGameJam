@@ -45,7 +45,7 @@ public class AttackModule : MonoBehaviour
 
             if (newProjectile.TryGetComponent<ProjectileController>(out ProjectileController controller))
             {
-                controller.InitialiseProjectile(fireDirection, projectileSpeed);
+                controller.InitialiseProjectile(fireDirection, projectileSpeed, gameObject);
             }
 
     }
@@ -59,7 +59,7 @@ public class AttackModule : MonoBehaviour
 
         if (newProjectile.TryGetComponent<ProjectileController>(out ProjectileController controller))
         {
-            controller.InitialiseProjectile(fireDirection, projectileSpeed);
+            controller.InitialiseProjectile(fireDirection, projectileSpeed, gameObject);
         }
 
         currentBurst++;
@@ -100,7 +100,7 @@ public class AttackModule : MonoBehaviour
                 if (newProjectile.TryGetComponent<ProjectileController>(out ProjectileController controller))
                 {
                     Vector3 moveDir = (newProjectile.transform.position - originPos).normalized;
-                    controller.InitialiseProjectile(moveDir, projectileSpeed);
+                    controller.InitialiseProjectile(moveDir, projectileSpeed, gameObject);
                 }
             }
 

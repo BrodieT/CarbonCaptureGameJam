@@ -16,6 +16,7 @@ public class ProjectileController : MonoBehaviour
     [SerializeField]
     private float lifespan = 2.0f;
 
+    GameObject parent = default;
 
     // Start is called before the first frame update
     void Start()
@@ -24,21 +25,27 @@ public class ProjectileController : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
     }
 
-    public void InitialiseProjectile(Vector2 dir, float speed)
+    public void InitialiseProjectile(Vector2 dir, float speed, GameObject p)
     {
         direction = dir;
         movementSpeed = speed;
         isInit = true;
+        parent = p;
         Invoke("Cleanup", lifespan);
     }
 
 
     private void FixedUpdate()
     {
+        
         if (isInit)
         {
             //Move the character to the right horizontally and apply the vertical velocity
             rigidBody.velocity = movementSpeed * direction * Time.fixedDeltaTime;
+        }
+        if (parent == null)
+        {
+            Cleanup();
         }
     }
 

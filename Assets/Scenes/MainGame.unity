@@ -571,6 +571,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2556106707054805782, guid: 2f2805b9240e0d64dbb1773074399c87, type: 3}
+      propertyPath: field of view
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2556106707054805782, guid: 2f2805b9240e0d64dbb1773074399c87, type: 3}
       propertyPath: orthographic size
       value: 9
       objectReference: {fileID: 0}
@@ -968,6 +972,8 @@ MonoBehaviour:
   allParticleEffects:
   - {fileID: 2666990774438556394, guid: 52cfd50efd0795442a6b9ecc422c23f8, type: 3}
   - {fileID: 4455488056765808307, guid: 054e66747ed4cdb44a14cfa66453493d, type: 3}
+  pew: {fileID: 0}
+  explosion: {fileID: 0}
 --- !u!4 &1289238389
 Transform:
   m_ObjectHideFlags: 0

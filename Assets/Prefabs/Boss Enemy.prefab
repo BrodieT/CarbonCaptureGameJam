@@ -116,7 +116,7 @@ MonoBehaviour:
   attackTime: 1
   maxHealth: 0
   attackModule: {fileID: 8025170206308980318}
-  attackList: 0100000002000000
+  attackList: 0000000001000000
   randomAttacks: 1
   enemyDrop: {fileID: 2235649027755034969, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
   bossEnemy: 1
@@ -264,8 +264,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 3538166745202859937, guid: ff594876cde2ac44a891a426acc3e9de, type: 3}
-  offset: {x: -2, y: 0}
-  fireDirection: {x: -1, y: 0}
+  offset: {x: -3, y: 0}
+  fireDirection: {x: 1, y: 0}
   projectileSpeed: 100
   attackCooldown: 5
   burstNum: 3

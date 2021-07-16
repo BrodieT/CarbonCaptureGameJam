@@ -8,23 +8,25 @@ public class LevelGenerator : MonoBehaviour
 
     IEnumerator LevelTimer()
     {
-        while (time > 0)
+        if (!bossLevel)
         {
-            time--;
-            System.TimeSpan duration = System.TimeSpan.FromSeconds(time);
-            Vector2Int result = new Vector2Int(duration.Minutes, duration.Seconds);
+            while (time > 0)
+            {
+                time--;
+                System.TimeSpan duration = System.TimeSpan.FromSeconds(time);
+                Vector2Int result = new Vector2Int(duration.Minutes, duration.Seconds);
 
-            GameUI.Instance.UpdateTimerText(result);
+                GameUI.Instance.UpdateTimerText(result);
 
-           
+
                 GenerateNewPipeLevelPiece();
-            
 
-            yield return new WaitForSecondsRealtime(1);
+
+                yield return new WaitForSecondsRealtime(1);
+            }
+
+            NextDialogue();
         }
-
-        NextDialogue();
-
     }
 
     public void NextDialogue()
@@ -32,7 +34,11 @@ public class LevelGenerator : MonoBehaviour
         currentDialogue++;
         Debug.Log(currentDialogue + "     " + dialogues.Count);
 
-        if (currentDialogue <= dialogues.Count)
+        if(currentDialogue > dialogues.Count)
+        {
+            currentDialogue = -1;
+        }
+        if (currentDialogue <= dialogues.Count || bossLevel)
         {
             dialogues[currentDialogue].StartDialogue();
         }
@@ -190,6 +196,12 @@ public class LevelGenerator : MonoBehaviour
         bossLevel = true;
         levelPieces.Clear();
         levelPieces.AddRange(bossLevelPieces);
+
+        foreach (GameObject e in enemies)
+        {
+            Destroy(e);
+        }
+
 
         time = levelTime;
         StartCoroutine(LevelCountdown());

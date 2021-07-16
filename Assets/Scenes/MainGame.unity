@@ -640,6 +640,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f2805b9240e0d64dbb1773074399c87, type: 3}
+--- !u!114 &1034784838 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 899937533, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+  m_PrefabInstance: {fileID: 1270621965}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b308e95d4940cf45b6cecdcca0ffc38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1120610564
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,6 +866,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4271930421281605478, guid: 2154da3b2076243409316078765c75bc, type: 3}
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: bossLevelDialogue
+      value: 
+      objectReference: {fileID: 1034784838}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: bossLevelPieces.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -972,8 +987,8 @@ MonoBehaviour:
   allParticleEffects:
   - {fileID: 2666990774438556394, guid: 52cfd50efd0795442a6b9ecc422c23f8, type: 3}
   - {fileID: 4455488056765808307, guid: 054e66747ed4cdb44a14cfa66453493d, type: 3}
-  pew: {fileID: 0}
-  explosion: {fileID: 0}
+  pew: {fileID: 2666990774438556394, guid: 52cfd50efd0795442a6b9ecc422c23f8, type: 3}
+  explosion: {fileID: 4455488056765808307, guid: 054e66747ed4cdb44a14cfa66453493d, type: 3}
 --- !u!4 &1289238389
 Transform:
   m_ObjectHideFlags: 0

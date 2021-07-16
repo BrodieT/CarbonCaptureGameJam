@@ -119,7 +119,7 @@ public class EnemyAI : MonoBehaviour
         isDead = true;
         StopAllCoroutines();
 
-        EffectsHandler.Instance.SpawnEffect(transform.position);
+        EffectsHandler.Instance.SpawnExplosion(transform.position);
         AudioHandler.Instance.PlaySound(AudioBank.Audio.IMPACT);
 
         if (!bossEnemy)

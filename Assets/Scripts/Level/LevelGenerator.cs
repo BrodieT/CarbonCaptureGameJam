@@ -16,9 +16,9 @@ public class LevelGenerator : MonoBehaviour
 
             GameUI.Instance.UpdateTimerText(result);
 
-
-            GenerateNewPipeLevelPiece();
-
+           
+                GenerateNewPipeLevelPiece();
+            
 
             yield return new WaitForSecondsRealtime(1);
         }
@@ -30,7 +30,6 @@ public class LevelGenerator : MonoBehaviour
     public void NextDialogue()
     {
         currentDialogue++;
-
         Debug.Log(currentDialogue + "     " + dialogues.Count);
 
         if (currentDialogue <= dialogues.Count)
@@ -285,7 +284,11 @@ public class LevelGenerator : MonoBehaviour
         }
 
         time = 1000;
-        currentDialogue = -1;
+
+        if (playerDied)
+        {
+            currentDialogue = -1;
+        }
         StopAllCoroutines();
 
         StartLevelCountdown();

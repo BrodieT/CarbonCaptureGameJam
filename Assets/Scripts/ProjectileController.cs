@@ -61,6 +61,10 @@ public class ProjectileController : MonoBehaviour
         {
             health.OnHit();
         }
+        else
+        {
+            EffectsHandler.Instance.SpawnPew(transform.position);
+        }
 
         Destroy(gameObject);
     }

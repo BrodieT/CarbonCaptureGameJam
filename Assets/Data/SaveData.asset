@@ -13,13 +13,15 @@ MonoBehaviour:
   m_Name: SaveData
   m_EditorClassIdentifier: 
   saveData:
-  - playerName: UWU
-    playerScore: 6
-  - playerName: BLO
-    playerScore: 4
-  - playerName: AWA
-    playerScore: 2
-  - playerName: ATS
+  - playerName: HEA
     playerScore: 0
-  - playerName: AUS
+  - playerName: BRO
+    playerScore: 0
+  - playerName: FOR
+    playerScore: 0
+  - playerName: KRI
+    playerScore: 0
+  - playerName: GAV
+    playerScore: 0
+  - playerName: MAU
     playerScore: 0

@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!95 &33839348 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 665894504903202212, guid: bb415a2ec2b79de478fb7d3049c7ba7f, type: 3}
+  m_PrefabInstance: {fileID: 701774572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &209941365 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1586061305, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
@@ -310,6 +315,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 636570003221504887, guid: bb415a2ec2b79de478fb7d3049c7ba7f, type: 3}
+      propertyPath: healthManager
+      value: 
+      objectReference: {fileID: 945833599}
+    - target: {fileID: 636570003221504887, guid: bb415a2ec2b79de478fb7d3049c7ba7f, type: 3}
+      propertyPath: playerAnimator
+      value: 
+      objectReference: {fileID: 33839348}
     - target: {fileID: 6255532615484841412, guid: bb415a2ec2b79de478fb7d3049c7ba7f, type: 3}
       propertyPath: healthHolder
       value: 
@@ -536,6 +549,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &945833599 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6255532615484841412, guid: bb415a2ec2b79de478fb7d3049c7ba7f, type: 3}
+  m_PrefabInstance: {fileID: 701774572}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8542eaffab51da147b84ed46ab9a03a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &980144899
 PrefabInstance:
   m_ObjectHideFlags: 0

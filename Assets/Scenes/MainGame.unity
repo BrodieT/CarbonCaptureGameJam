@@ -818,10 +818,10 @@ PrefabInstance:
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: bossEnemy
       value: 
-      objectReference: {fileID: 8846583698284393678, guid: d579577df5469e444a5456273c7121a1, type: 3}
+      objectReference: {fileID: 3829050005262864330, guid: 63a7e311053088a44b426de1a76b279b, type: 3}
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: levelTime
-      value: 4
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: offsetSize
@@ -833,20 +833,44 @@ PrefabInstance:
       objectReference: {fileID: 4271930421281605478, guid: 2154da3b2076243409316078765c75bc, type: 3}
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: bossLevelPieces.Array.size
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: pipeLevelPieces.Array.size
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: bossLevelPieces.Array.data[0]
       value: 
-      objectReference: {fileID: 7211224323946990941, guid: 6b977e0be3a36ec489dcce7b17aa0981, type: 3}
+      objectReference: {fileID: 8267351299235617950, guid: 64e08b627a25e10409fb40dbd1f16ed9, type: 3}
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: bossLevelPieces.Array.data[1]
       value: 
-      objectReference: {fileID: 8961986477694980020, guid: 16d56808dc1f4464ebaffde928b2885d, type: 3}
+      objectReference: {fileID: 7211224323946990941, guid: 6b977e0be3a36ec489dcce7b17aa0981, type: 3}
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: bossLevelPieces.Array.data[2]
       value: 
+      objectReference: {fileID: 8961986477694980020, guid: 16d56808dc1f4464ebaffde928b2885d, type: 3}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: bossLevelPieces.Array.data[3]
+      value: 
       objectReference: {fileID: 5923114538424988614, guid: 15f1d2281b1bec24fb2bd297075d2f12, type: 3}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: pipeLevelPieces.Array.data[0]
+      value: 
+      objectReference: {fileID: 8267351299235617950, guid: 64e08b627a25e10409fb40dbd1f16ed9, type: 3}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: pipeLevelPieces.Array.data[1]
+      value: 
+      objectReference: {fileID: 7211224323946990941, guid: b165db6e906a04949b814fa602a4ac24, type: 3}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: pipeLevelPieces.Array.data[2]
+      value: 
+      objectReference: {fileID: 8961986477694980020, guid: e1ed98c7d08744dafacd90fc741be002, type: 3}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: pipeLevelPieces.Array.data[3]
+      value: 
+      objectReference: {fileID: 5923114538424988614, guid: 3007ebd08b7bf45b5a2a05a05c84086d, type: 3}
     - target: {fileID: 9139400517873394798, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1166,6 +1190,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2929836380033048043, guid: 95d3fb3bd4d12784dbe6f3b3caa51ce2, type: 2}
+    - target: {fileID: 775506006110701299, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
+      propertyPath: bossDropAmount
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1039304385585378109, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
       propertyPath: m_Sprite
       value: 

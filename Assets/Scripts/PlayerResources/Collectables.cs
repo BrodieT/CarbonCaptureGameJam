@@ -15,6 +15,8 @@ public class Collectables : MonoBehaviour
     [SerializeField]
     string textMessage = "";
 
+    [SerializeField]
+    int bossDropAmount = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,14 @@ public class Collectables : MonoBehaviour
     void CollectedCO2()
     {
         totalCO2Collected++;
+        collectablesUI.text = textMessage + " " + totalCO2Collected.ToString();
+
+        LeaderboardHandler.Instance.SetHighScore(totalCO2Collected);
+    }
+
+    public void BossDrop()
+    {
+        totalCO2Collected += bossDropAmount;
         collectablesUI.text = textMessage + " " + totalCO2Collected.ToString();
 
         LeaderboardHandler.Instance.SetHighScore(totalCO2Collected);

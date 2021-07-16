@@ -122,8 +122,16 @@ public class EnemyAI : MonoBehaviour
         EffectsHandler.Instance.SpawnEffect(transform.position);
         AudioHandler.Instance.PlaySound(AudioBank.Audio.IMPACT);
 
-        GameObject drop = Instantiate(enemyDrop);
-        drop.transform.position = transform.position;
+        if (!bossEnemy)
+        {
+            GameObject drop = Instantiate(enemyDrop);
+            drop.transform.position = transform.position;
+        }
+        else
+        {
+            Collectables.Instance.BossDrop();
+            LevelGenerator.Instance.NextDialogue();
+        }
 
         Destroy(gameObject);
     }

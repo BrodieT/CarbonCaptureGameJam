@@ -69,6 +69,12 @@ public class UIHandler : MonoBehaviour
         {
             if(u.menuName == menu)
             {
+                if(u.menuName != MenuNames.GAME_UI)
+                {
+                    PlayerController.instance.PausePlayer();
+                    CameraController.instance.PauseCamera();
+                }
+
                 u.obj.SetActive(true);
 
             }

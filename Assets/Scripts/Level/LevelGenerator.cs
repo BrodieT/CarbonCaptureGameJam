@@ -24,9 +24,16 @@ public class LevelGenerator : MonoBehaviour
             yield return new WaitForSecondsRealtime(1);
         }
 
+        NextDialogue();
+
+    }
+
+    public void NextDialogue()
+    {
         currentDialogue++;
 
         Debug.Log(currentDialogue + "     " + dialogues.Count);
+
         if (currentDialogue <= dialogues.Count)
         {
             dialogues[currentDialogue].StartDialogue();
@@ -56,10 +63,10 @@ public class LevelGenerator : MonoBehaviour
         GameUI.Instance.UpdateCountdownText(count);
         StartLevel();
 
-        if(bossLevel && boss == null)
+        if (bossLevel && boss == null)
         {
             boss = Instantiate(bossEnemy);
-            boss.transform.position = new Vector3(CameraController.instance.transform.position.x, PlayerController.instance.transform.position.z, PlayerController.instance.transform.position.z) + new Vector3(5, 0, 0);
+            boss.transform.position = new Vector3(CameraController.instance.transform.position.x, PlayerController.instance.transform.position.z, PlayerController.instance.transform.position.z) + new Vector3(7, 0, 0);
         }
     }
 
@@ -155,9 +162,12 @@ public class LevelGenerator : MonoBehaviour
 
     void StartLevel()
     {
-        time = levelTime;
+        if (!bossLevel)
+        {
+            time = levelTime;
 
-        StartCoroutine(LevelTimer());
+            StartCoroutine(LevelTimer());
+        }
 
         PlayerController.instance.UnPausePlayer();
         CameraController.instance.UnPauseCamera();
@@ -166,7 +176,8 @@ public class LevelGenerator : MonoBehaviour
     void StartBossLevel()
     {
         bossLevel = true;
-        levelPieces = bossLevelPieces;
+        levelPieces.Clear();
+        levelPieces.AddRange(bossLevelPieces);
 
         time = levelTime;
         StartCoroutine(LevelCountdown());
@@ -196,16 +207,27 @@ public class LevelGenerator : MonoBehaviour
 
     public void GenerateNewPipeLevelPiece()
     {
-        levelPiece = Instantiate(levelPieces[Random.Range(0, levelPieces.Count)]);
+        if(spawnedPieces.Count == 0)
+        {
+            levelPiece = Instantiate(levelPieces[0]);
+        }
+        else
+        {
+            levelPiece = Instantiate(levelPieces[Random.Range(1, levelPieces.Count)]);
+        }
+
         levelPiece.transform.position = new Vector3(xPos, yPos, zPos);
         spawnedPieces.Add(levelPiece);
         xPos += offsetSize;
 
         if (!bossLevel)
         {
-            Vector3 spawn = levelPiece.GetComponentInChildren<EnemySpawn>().transform.position;
-            GameObject enemy = Instantiate(stationaryEnemy);
-            enemy.transform.position = spawn;
+            if (spawnedPieces.Count != 1)
+            {
+                Vector3 spawn = levelPiece.GetComponentInChildren<EnemySpawn>().transform.position;
+                GameObject enemy = Instantiate(stationaryEnemy);
+                enemy.transform.position = spawn;
+            }
         }
 
         if(spawnedPieces.Count > 50)

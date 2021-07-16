@@ -116,7 +116,7 @@ MonoBehaviour:
   attackTime: 1
   maxHealth: 0
   attackModule: {fileID: 8025170206308980318}
-  attackList: 0000000001000000
+  attackList: 00000000
   randomAttacks: 1
   enemyDrop: {fileID: 2235649027755034969, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
   bossEnemy: 1

@@ -36,14 +36,16 @@ public class LevelGenerator : MonoBehaviour
 
         if (currentDialogue <= dialogues.Count || bossLevel)
         {
+            Debug.Log("STARTED DIALOGUE");
             dialogues[currentDialogue].StartDialogue();
+            StopAllCoroutines();
         }
         else
         {
+            Restart(false);
             StartLevelCountdown();
         }
 
-        Restart(false);
     }
 
     IEnumerator LevelCountdown()
@@ -147,7 +149,7 @@ public class LevelGenerator : MonoBehaviour
     {
         Debug.Log(currentDialogue + "     " + dialogues.Count);
 
-        if(currentDialogue >= dialogues.Count - 1 || finished)
+        if(finished)
         {
             return true;
         }
@@ -312,7 +314,5 @@ public class LevelGenerator : MonoBehaviour
         finished = false;
 
         StopAllCoroutines();
-
-        StartLevelCountdown();
     }
 }

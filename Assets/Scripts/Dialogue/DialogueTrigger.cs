@@ -43,6 +43,9 @@ public class DialogueTrigger : MonoBehaviour
         UIHandler.Instance.SwitchMenu(UIHandler.MenuNames.DIALOGUE);
         //Display the current beat
         DisplayBeat(0);
+
+        PlayerController.instance.PausePlayer();
+        CameraController.instance.PauseCamera();
     }
  
 
@@ -66,10 +69,12 @@ public class DialogueTrigger : MonoBehaviour
         {
             if (!LevelGenerator.Instance.OnLastDialogue())
             {
+                Debug.Log("START COUNTDOWN");
                 LevelGenerator.Instance.StartLevelCountdown();
             }
             else
             {
+                Debug.Log("FINISHED");
                 PlayerController.instance.PausePlayer();
                 UIHandler.Instance.SwitchMenu(UIHandler.MenuNames.SAVE_SCREEN);
             }

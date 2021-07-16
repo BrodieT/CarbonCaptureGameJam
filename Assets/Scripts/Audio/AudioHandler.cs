@@ -34,7 +34,6 @@ public class AudioHandler : MonoBehaviour
 
     public void PlaySound(AudioBank.Audio name)
     {
-        Debug.Log("play");
 
         foreach(AudioBank.AudioFile f in allAudioFiles)
         {

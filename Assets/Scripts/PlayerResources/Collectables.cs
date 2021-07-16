@@ -50,4 +50,12 @@ public class Collectables : MonoBehaviour
         LeaderboardHandler.Instance.SetHighScore(totalCO2Collected);
     }
 
+    public void ResetScore()
+    {
+        totalCO2Collected = 0;
+        collectablesUI.text = textMessage + " " + totalCO2Collected.ToString();
+
+        LeaderboardHandler.Instance.SetHighScore(totalCO2Collected);
+    }
+
 }

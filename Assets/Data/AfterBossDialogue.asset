@@ -13,7 +13,23 @@ MonoBehaviour:
   m_Name: AfterBossDialogue
   m_EditorClassIdentifier: 
   dialogue:
-  - speaker: 0
-    dialogueContent: Wassup homie, u a dick
   - speaker: 1
-    dialogueContent: Suck it
+    dialogueContent: '*cough cough*'
+  - speaker: 1
+    dialogueContent: How? How did you best me?
+  - speaker: 0
+    dialogueContent: With the power of Carbon Capture my dude!
+  - speaker: 0
+    dialogueContent: 'Now that you are no longer polluting this factory. Our energy
+      creation can start to undo the damage you have done. '
+  - speaker: 1
+    dialogueContent: ' Ah heck! There is no way. '
+  - speaker: 0
+    dialogueContent: "Next you will go into the C02 stripper where you\u2019ll be
+      turned back into a gas and then sent into storage deep below the ocean. "
+  - speaker: 1
+    dialogueContent: ' I hate water!'
+  - speaker: 0
+    dialogueContent: 'See ya smoke bag! '
+  - speaker: 1
+    dialogueContent: ' Noooooooooooo!'

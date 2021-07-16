@@ -34,6 +34,13 @@ public class PlayerHealthManager : HealthManager
             Instantiate(healthSegment, healthHolder.transform);
     }
 
+    public void ResetHealth()
+    {
+        for (int i = 0; i < numberOfHits - 1; i++)
+        {
+            AddSegment();
+        }
+    }
 
     public void RemoveSegment()
     {

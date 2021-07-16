@@ -311,8 +311,6 @@ public class LevelGenerator : MonoBehaviour
             currentDialogue = -1;
         }
 
-        finished = false;
-
         StopAllCoroutines();
     }
 }

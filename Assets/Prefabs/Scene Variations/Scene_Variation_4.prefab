@@ -458,6 +458,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2235649027755034968, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
+      propertyPath: placed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2235649027755034969, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_Name
       value: CollectableCO2 (9)
@@ -519,6 +523,10 @@ PrefabInstance:
     - target: {fileID: 2235649027755034964, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2235649027755034968, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
+      propertyPath: placed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2235649027755034969, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_Name
@@ -582,6 +590,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2235649027755034968, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
+      propertyPath: placed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2235649027755034969, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_Name
       value: CollectableCO2 (11)
@@ -644,6 +656,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2235649027755034968, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
+      propertyPath: placed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2235649027755034969, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_Name
       value: CollectableCO2 (20)
@@ -705,6 +721,10 @@ PrefabInstance:
     - target: {fileID: 2235649027755034964, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2235649027755034968, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
+      propertyPath: placed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2235649027755034969, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_Name
@@ -896,6 +916,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2235649027755034968, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
+      propertyPath: placed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2235649027755034969, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_Name
       value: CollectableCO2 (10)
@@ -957,6 +981,10 @@ PrefabInstance:
     - target: {fileID: 2235649027755034964, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2235649027755034968, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
+      propertyPath: placed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2235649027755034969, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_Name
@@ -1020,6 +1048,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2235649027755034968, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
+      propertyPath: placed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2235649027755034969, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_Name
       value: CollectableCO2 (6)
@@ -1082,6 +1114,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2235649027755034968, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
+      propertyPath: placed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2235649027755034969, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_Name
       value: CollectableCO2 (21)
@@ -1143,6 +1179,10 @@ PrefabInstance:
     - target: {fileID: 2235649027755034964, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2235649027755034968, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
+      propertyPath: placed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2235649027755034969, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_Name
@@ -1272,6 +1312,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2235649027755034968, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
+      propertyPath: placed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2235649027755034969, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_Name
       value: CollectableCO2 (7)
@@ -1400,6 +1444,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2235649027755034968, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
+      propertyPath: placed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2235649027755034969, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_Name
       value: CollectableCO2 (15)
@@ -1461,6 +1509,10 @@ PrefabInstance:
     - target: {fileID: 2235649027755034964, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2235649027755034968, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
+      propertyPath: placed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2235649027755034969, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_Name
@@ -1524,6 +1576,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2235649027755034968, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
+      propertyPath: placed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2235649027755034969, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_Name
       value: CollectableCO2 (8)
@@ -1585,6 +1641,10 @@ PrefabInstance:
     - target: {fileID: 2235649027755034964, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2235649027755034968, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
+      propertyPath: placed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2235649027755034969, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_Name
@@ -1718,6 +1778,10 @@ PrefabInstance:
     - target: {fileID: 2235649027755034964, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2235649027755034968, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
+      propertyPath: placed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2235649027755034969, guid: 73872c76aec6dfe4995744d5a27d7421, type: 3}
       propertyPath: m_Name

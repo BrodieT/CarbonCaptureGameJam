@@ -7,9 +7,14 @@ public class EnemyDrops : MonoBehaviour
     public delegate void OnCollect();
     public static event OnCollect collectCO2Delegate;
 
+    [SerializeField]
+    bool placed = false;
     private void Start()
     {
-        Invoke("DestroyCarbon", 10);   
+        if (!placed)
+        {
+            Invoke("DestroyCarbon", 10);
+        }
     }
 
     void OnCollected()

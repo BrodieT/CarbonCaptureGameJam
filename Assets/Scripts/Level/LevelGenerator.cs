@@ -34,10 +34,6 @@ public class LevelGenerator : MonoBehaviour
         currentDialogue++;
         Debug.Log(currentDialogue + "     " + dialogues.Count);
 
-        if(currentDialogue > dialogues.Count)
-        {
-            currentDialogue = -1;
-        }
         if (currentDialogue <= dialogues.Count || bossLevel)
         {
             dialogues[currentDialogue].StartDialogue();
@@ -151,7 +147,7 @@ public class LevelGenerator : MonoBehaviour
     {
         Debug.Log(currentDialogue + "     " + dialogues.Count);
 
-        if(currentDialogue > dialogues.Count - 1 || finished)
+        if(currentDialogue >= dialogues.Count - 1 || finished)
         {
             return true;
         }

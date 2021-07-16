@@ -225,11 +225,14 @@ public class LevelGenerator : MonoBehaviour
 
         if (!bossLevel)
         {
-            if (spawnedPieces.Count != 1)
+            foreach (Transform t in levelPiece.transform)
             {
-                Vector3 spawn = levelPiece.GetComponentInChildren<EnemySpawn>().transform.position;
-                GameObject enemy = Instantiate(stationaryEnemy);
-                enemy.transform.position = spawn;
+                if (t.GetComponent<EnemySpawn>())
+                {
+                    Vector3 spawn = t.GetComponent<EnemySpawn>().transform.position;
+                    GameObject enemy = Instantiate(stationaryEnemy);
+                    enemy.transform.position = spawn;
+                }
             }
         }
 

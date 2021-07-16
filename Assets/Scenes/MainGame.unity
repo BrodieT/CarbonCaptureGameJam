@@ -994,7 +994,7 @@ PrefabInstance:
       objectReference: {fileID: 3829050005262864330, guid: 63a7e311053088a44b426de1a76b279b, type: 3}
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: levelTime
-      value: 30
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: offsetSize

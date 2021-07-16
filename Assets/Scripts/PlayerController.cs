@@ -117,6 +117,7 @@ public class PlayerController : MonoBehaviour
     {
         LevelGenerator.Instance.Restart(true);
         LevelGenerator.Instance.StartLevelCountdown();
+
         healthManager.ResetPlayerHealth();
         GetComponent<PlayerHealthManager>().ResetPlayerHealth();
         GetComponent<PlayerHealthManager>().ResetHealth();

@@ -39,6 +39,8 @@ public class LeaderboardHandler : MonoBehaviour
 
         saveScreen.SetActive(true);
         leaderboardScreen.SetActive(false);
+
+        informationText.text = " ";
     }
 
     public void SetHighScore(int s)

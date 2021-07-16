@@ -156,7 +156,7 @@ public class LevelGenerator : MonoBehaviour
     {
         if (!finished)
         {
-            if (currentDialogue == dialogues.Count - 2)
+            if (currentDialogue == dialogues.Count - 1)
             {
                 Debug.Log("BOSS LEVEL");
                 StartBossLevel();
@@ -284,6 +284,8 @@ public class LevelGenerator : MonoBehaviour
             Collectables.Instance.ResetScore();
         }
 
+        levelTime = 0;
+        currentDialogue = 0;
         StartLevelCountdown();
     }
 }

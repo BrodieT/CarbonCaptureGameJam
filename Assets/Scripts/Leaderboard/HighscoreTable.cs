@@ -17,7 +17,7 @@ public class HighscoreTable : MonoBehaviour
 
     [SerializeField]
     [Range(1, 15)]
-    private int highScoreLimit = 5;
+    private int highScoreLimit = 7;
 
     int current = 0;
     // Start is called before the first frame update

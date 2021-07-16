@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Tooltip("The jump animation trigger")]
     private string jumpAnimation = "Jump";
 
-
     [Header("Gravity Settings")]
     [SerializeField, Tooltip("How much Gravity is applied to the player")]
     private float gravityForce = -9.8f;
@@ -48,6 +47,7 @@ public class PlayerController : MonoBehaviour
     private float groundedTimer = 0.0f;
 
     //Component Caches
+    [SerializeField]
     private Animator playerAnimator = default; //used to animate the character
     private Rigidbody playerRigidbody = default; //used for character movement
     private AttackModule playerAttack = default; //used for ranged attacks
@@ -59,6 +59,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     HealthManager healthManager = default;
+
 
     public void EnterDialogue(DialogueTrigger dialogue)
     {
@@ -115,6 +116,7 @@ public class PlayerController : MonoBehaviour
     void KillPlayer()
     {
         LevelGenerator.Instance.Restart(true);
+        healthManager.ResetHealth();
     }
 
     private void Update()

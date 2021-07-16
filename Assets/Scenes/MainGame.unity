@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!95 &33839348 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 665894504903202212, guid: bb415a2ec2b79de478fb7d3049c7ba7f, type: 3}
+  m_PrefabInstance: {fileID: 701774572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &209941365 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1586061305, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
@@ -314,6 +319,10 @@ PrefabInstance:
       propertyPath: healthManager
       value: 
       objectReference: {fileID: 945833599}
+    - target: {fileID: 636570003221504887, guid: bb415a2ec2b79de478fb7d3049c7ba7f, type: 3}
+      propertyPath: playerAnimator
+      value: 
+      objectReference: {fileID: 33839348}
     - target: {fileID: 6255532615484841412, guid: bb415a2ec2b79de478fb7d3049c7ba7f, type: 3}
       propertyPath: healthHolder
       value: 
@@ -836,7 +845,7 @@ PrefabInstance:
       objectReference: {fileID: 3829050005262864330, guid: 63a7e311053088a44b426de1a76b279b, type: 3}
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: levelTime
-      value: 2
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: offsetSize

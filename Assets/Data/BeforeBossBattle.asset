@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: BeforeBossBattle
   m_EditorClassIdentifier: 
   dialogue:
-  - speaker: 0
-    dialogueContent: We gon fight big boi
   - speaker: 1
-    dialogueContent: Bring it bitch
+    dialogueContent: "you may have captured my minions but you\u2019ll have no chance
+      capturing me. "
+  - speaker: 0
+    dialogueContent: "That\u2019s where you\u2019re wrong. Check it. You\u2019re
+      in the CO2 absorber room I\u2019ve created. "
+  - speaker: 1
+    dialogueContent: 'Huh? '
+  - speaker: 0
+    dialogueContent: Prepare to be liquified!

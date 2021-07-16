@@ -14,24 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - speaker: 0
-    dialogueContent: 'Damn you Colonel Carbon!
-
-      You''re polluting again!
-
-      I
-      will show you the power of CCS!'
-    beatTime: 5
+    dialogueContent: "Well well well. If it isn\u2019t Colonel Carbon. Destroyed
+      any good environments lately?"
   - speaker: 1
-    dialogueContent: Pollution is the answer! You fool!
-    beatTime: 5
-  - speaker: 0
-    dialogueContent: When the well is dry, we know the worth of water.
-    beatTime: 10
+    dialogueContent: 'In fact, business is better than ever Captain Climate. Your
+      attempts to eradicate me and my minions have only strengthened our resolve. '
   - speaker: 1
-    dialogueContent: Shut up you goon!
-    beatTime: 10
+    dialogueContent: And despite the fact that this renewable energy plant is trying
+      to prevent catastrophe it still produces tons of my minions!
   - speaker: 0
-    dialogueContent: 'Goddammit Colonel Carbon!
-
-      I''ma break your legs!'
-    beatTime: 10
+    dialogueContent: Until now smoke bag! Just wait until you see my new Carbon Capture
+      technology!
+  - speaker: 1
+    dialogueContent: Whaaaaaaaaaaaaaaat?!?!
+  - speaker: 0
+    dialogueContent: 'Prepare to be decarbonised! '

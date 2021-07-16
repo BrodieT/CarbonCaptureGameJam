@@ -116,7 +116,6 @@ public class PlayerController : MonoBehaviour
     void KillPlayer()
     {
         LevelGenerator.Instance.Restart(true);
-        healthManager.ResetHealth();
     }
 
     private void Update()

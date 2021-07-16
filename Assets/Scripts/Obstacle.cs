@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.transform.CompareTag("Player"))
         {
-            if(other.TryGetComponent<HealthManager>(out HealthManager hp))
+            if (collision.transform.TryGetComponent<HealthManager>(out HealthManager hp))
             {
                 hp.OnHit();
             }
 
-            Destroy(gameObject);
+           
         }
+
+        Destroy(gameObject);
     }
 }

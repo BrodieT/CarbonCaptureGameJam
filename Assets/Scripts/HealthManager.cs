@@ -25,10 +25,6 @@ public class HealthManager : MonoBehaviour
         }
     }
 
-    public void ResetHealth()
-    {
-        numberOfHits = 3;
-    }
     public virtual void PickupHealth()
     {
         numberOfHits++;

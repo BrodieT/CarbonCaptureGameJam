@@ -257,10 +257,7 @@ public class LevelGenerator : MonoBehaviour
             }
         }
 
-        if(spawnedPieces.Count > 50)
-        {
-            CleanupPipeLevelPieces();
-        }
+       
     }
 
     public void CleanupPipeLevelPieces()

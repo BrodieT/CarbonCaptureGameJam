@@ -865,7 +865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: pipeLevelPieces.Array.size
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: bossLevelPieces.Array.data[0]
@@ -911,6 +911,18 @@ PrefabInstance:
       propertyPath: pipeLevelPieces.Array.data[6]
       value: 
       objectReference: {fileID: 6705203871475582726, guid: 392e2191499736c47b6d2637ab39e5ea, type: 3}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: pipeLevelPieces.Array.data[7]
+      value: 
+      objectReference: {fileID: 6538251168221895039, guid: b659d5f93cdfbe04091a9a0a16cd8e6e, type: 3}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: pipeLevelPieces.Array.data[8]
+      value: 
+      objectReference: {fileID: 6538251168221895039, guid: 8feab872312f7bd41874e68f7443d8de, type: 3}
+    - target: {fileID: 9139400517873394797, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
+      propertyPath: pipeLevelPieces.Array.data[9]
+      value: 
+      objectReference: {fileID: 6538251168221895039, guid: 8feab872312f7bd41874e68f7443d8de, type: 3}
     - target: {fileID: 9139400517873394798, guid: 87eaccefce9a3a34683af4018b63c973, type: 3}
       propertyPath: m_RootOrder
       value: 3

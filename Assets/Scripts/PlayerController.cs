@@ -56,6 +56,10 @@ public class PlayerController : MonoBehaviour
     private bool isInDialogue = false;
     private DialogueTrigger currentDialogueRef = default;
     private Vector3 velocityStore = new Vector3();
+
+    [SerializeField]
+    HealthManager healthManager = default;
+
     public void EnterDialogue(DialogueTrigger dialogue)
     {
         isInDialogue = true;
@@ -103,6 +107,15 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    private void Start()
+    {
+        healthManager.onDie.AddListener(() => KillPlayer());
+    }
+
+    void KillPlayer()
+    {
+        LevelGenerator.Instance.Restart(true);
+    }
 
     private void Update()
     {

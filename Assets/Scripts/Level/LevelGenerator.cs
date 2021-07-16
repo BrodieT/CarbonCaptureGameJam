@@ -43,7 +43,7 @@ public class LevelGenerator : MonoBehaviour
             StartLevelCountdown();
         }
 
-        Restart();
+        Restart(false);
     }
 
     IEnumerator LevelCountdown()
@@ -146,6 +146,8 @@ public class LevelGenerator : MonoBehaviour
 
     public void StartLevelCountdown()
     {
+        Restart(false);
+
         if (currentDialogue == dialogues.Count - 2)
         {
             Debug.Log("BOSS LEVEL");
@@ -178,8 +180,6 @@ public class LevelGenerator : MonoBehaviour
         bossLevel = true;
         levelPieces.Clear();
         levelPieces.AddRange(bossLevelPieces);
-
-        Restart();
 
         time = levelTime;
         StartCoroutine(LevelCountdown());
@@ -246,7 +246,7 @@ public class LevelGenerator : MonoBehaviour
         Destroy(l);
     }
 
-    public void Restart()
+    public void Restart(bool playerDied)
     {
         foreach(GameObject o in spawnedPieces)
         {
@@ -266,5 +266,10 @@ public class LevelGenerator : MonoBehaviour
 
         //Reset Player
         PlayerController.instance.transform.position = playerSpawn.position;
+
+        if(playerDied)
+        {
+            Collectables.Instance.ResetScore();
+        }
     }
 }

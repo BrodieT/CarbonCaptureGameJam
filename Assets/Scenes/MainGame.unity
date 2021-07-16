@@ -580,7 +580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2556106707054805783, guid: 2f2805b9240e0d64dbb1773074399c87, type: 3}
       propertyPath: moveSpeed
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2556106707054805783, guid: 2f2805b9240e0d64dbb1773074399c87, type: 3}
       propertyPath: targetOffset.y
@@ -1713,7 +1713,7 @@ PrefabInstance:
     - target: {fileID: 5432447403709295980, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4d702f21ebf8ea647970656de6aeed17, type: 3}
+      objectReference: {fileID: 21300000, guid: f1d82abf9226a7547923ae2a41b532ff, type: 3}
     - target: {fileID: 5432447403709295980, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
       propertyPath: m_PreserveAspect
       value: 1

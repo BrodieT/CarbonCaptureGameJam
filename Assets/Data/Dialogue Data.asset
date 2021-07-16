@@ -26,6 +26,6 @@ MonoBehaviour:
     dialogueContent: Until now smoke bag! Just wait until you see my new Carbon Capture
       technology!
   - speaker: 1
-    dialogueContent: Whaaaaaaaaaaaaaaat?!?!
+    dialogueContent: Wait, whaaat??
   - speaker: 0
     dialogueContent: 'Prepare to be decarbonised! '

@@ -1206,6 +1206,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1765377413, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 18.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1765377414, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -1461,7 +1465,7 @@ PrefabInstance:
     - target: {fileID: 2123761539372017471, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ba1956122e55144988ebdca1b554643f, type: 3}
+      objectReference: {fileID: 21300000, guid: 842f22edc54d64b319a92f12024aebc2, type: 3}
     - target: {fileID: 2510722278148547551, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -1876,7 +1880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6942673038791216063, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 252.1
+      value: 239
       objectReference: {fileID: 0}
     - target: {fileID: 6942673038791216063, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1906,6 +1910,18 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2929836380033048043, guid: 95d3fb3bd4d12784dbe6f3b3caa51ce2, type: 2}
+    - target: {fileID: 7478969117516433891, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.57172
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478969117516433891, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.57172
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478969117516433891, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.57172
+      objectReference: {fileID: 0}
     - target: {fileID: 8157867618775706192, guid: 6af9ad37898e7304eaad45b831bb32a3, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
